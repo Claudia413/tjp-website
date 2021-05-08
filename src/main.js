@@ -7,8 +7,8 @@ import linkResolver from "./link-resolver";
 
 Vue.config.productionTip = false;
 
-const accessToken = process.env.PRISMIC_TOKEN;
-const endpoint = process.env.PRISMIC_URL;
+const accessToken = process.env.VUE_APP_PRISMIC_TOKEN;
+const endpoint = process.env.VUE_APP_PRISMIC_URL;
 
 Vue.use(PrismicVue, {
   endpoint,

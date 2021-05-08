@@ -100,7 +100,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .layout {
   width: 100%;
   margin: 0;
