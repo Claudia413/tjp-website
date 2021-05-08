@@ -86,8 +86,18 @@
 
 <script>
 import "./assets/styles.scss";
-
-export default {};
+export default {
+  data() {
+    return {
+      showMobileMenu: false,
+    };
+  },
+  methods: {
+    toggleShowMobileMenu() {
+      this.showMobileMenu = !this.showMobileMenu;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
