@@ -1,0 +1,78 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+h1, h2 {
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 48px;
+    color: #333333;
+    &.emphasize {
+        &:after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 4px;
+            animation: show 0.4s ease forwards;
+        }
+        &.green {
+            &:after {
+                background-color: #99cc00;
+            }
+        }
+        &.white {
+            &:after {
+                background-color: white;
+            }
+        }
+        @keyframes show {
+            from {
+                width: 0px;
+            }
+            to {
+                width: 40px;
+            }
+        }
+    }
+}
+
+h4 {
+    font-size: 20px;
+    font-family: "Open Sans",
+    sans-serif;
+}
+
+h5 {
+    font-size: 16px;
+    line-height: 33px;
+    font-weight: bold;
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 33px;
+}
+
+p {
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 33px;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: #4d4d4d;
+    line-height: 13px;
+}

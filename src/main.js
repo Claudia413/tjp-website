@@ -2,8 +2,19 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import PrismicVue from "@prismicio/vue";
+import linkResolver from "./link-resolver";
 
 Vue.config.productionTip = false;
+
+const accessToken = process.env.PRISMIC_TOKEN;
+const endpoint = process.env.PRISMIC_URL;
+
+Vue.use(PrismicVue, {
+  endpoint,
+  apiOptions: { accessToken },
+  linkResolver,
+});
 
 new Vue({
   router,
