@@ -1,6 +1,10 @@
 <template>
   <div class="team-member" :class="even(index) ? '' : 'reverse'">
-    <img src="../assets/placeholderphoto.png" class="team-profile-photo" width="240" />
+    <img
+      src="../assets/placeholderphoto.png"
+      class="team-profile-photo"
+      width="240"
+    />
     <div class="team-profile-text">
       <h4>{{ name }}</h4>
       <p class="subtitle">{{ degree }}</p>

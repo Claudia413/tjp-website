@@ -42,16 +42,24 @@
           <section class="footer-navigation">
             <p class="strong">Sitemap</p>
             <router-link class="footer_nav_link" to="/">Home</router-link>
-            <router-link class="footer_nav_link" to="/about/">About</router-link>
-            <router-link class="footer_nav_link" to="/treatments">Treatments</router-link>
-            <router-link class="footer_nav_link" to="/contact">Contact</router-link>
+            <router-link class="footer_nav_link" to="/about/"
+              >About</router-link
+            >
+            <router-link class="footer_nav_link" to="/treatments"
+              >Treatments</router-link
+            >
+            <router-link class="footer_nav_link" to="/contact"
+              >Contact</router-link
+            >
             <router-link class="footer_nav_link" to="/faq">FAQ</router-link>
             <router-link class="footer_nav_link" to="/news">News</router-link>
           </section>
           <section class="contact">
             <address class="footer-address">
               <p class="strong">Call us at:</p>
-              <p><a href="tel:033434345" class="phonenumber">(03) 34 34 345</a></p>
+              <p>
+                <a href="tel:033434345" class="phonenumber">(03) 34 34 345</a>
+              </p>
               <p class="strong">Find us at:</p>
               <p>
                 109 Clarence Street<br />
@@ -77,7 +85,10 @@
         <div class="fine-print">
           <p>©Copyright 2020 Tower Junction Physio</p>
           <p>|</p>
-          <p>Made with love by <a href="https://claudiaengelsman.com">Claudia Engelsman</a></p>
+          <p>
+            Made with love by
+            <a href="https://claudiaengelsman.com">Claudia Engelsman</a>
+          </p>
         </div>
       </div>
     </footer>

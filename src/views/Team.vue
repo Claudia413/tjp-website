@@ -68,14 +68,16 @@ export default {
           name: "Jacky",
           title: "Receptionst",
           degree: "-",
-          bio: "lorem ipsum text long text longer text, with more words and sentences here.",
+          bio:
+            "lorem ipsum text long text longer text, with more words and sentences here.",
           photo: {},
         },
         {
           name: "Tracy",
           title: "Receptionist",
           degree: "-",
-          bio: "lorem ipsum text long text longer text, with more words and sentences here.",
+          bio:
+            "lorem ipsum text long text longer text, with more words and sentences here.",
           photo: {},
         },
       ],

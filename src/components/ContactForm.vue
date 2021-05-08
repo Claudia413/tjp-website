@@ -2,9 +2,20 @@
   <div class="sign-up">
     <form>
       <!-- people should not fill these in and expect good things -->
-      <div class="form-fields" aria-label="Please leave the following three fields empty">
+      <div
+        class="form-fields"
+        aria-label="Please leave the following three fields empty"
+      >
         <label for="b_name">Name: </label>
-        <input type="text" v-model="b_name" name="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name" />
+        <input
+          type="text"
+          v-model="b_name"
+          name="b_name"
+          tabindex="-1"
+          value=""
+          placeholder="Freddie"
+          id="b_name"
+        />
 
         <label for="b_email">Email: </label>
         <input
@@ -56,7 +67,9 @@
         class="contact-field"
         aria-label="Short description of your problem"
       />
-      <div class="button" type="submit" @click="sendMessage()">click here to send</div>
+      <div class="button" type="submit" @click="sendMessage()">
+        click here to send
+      </div>
       <article
         v-for="msg in messages"
         :key="msg.text"
@@ -105,11 +118,14 @@ export default {
     },
     async triggerSendMessageFunction() {
       try {
-        const response = await axios.post("/.netlify/functions/send-contact-email", {
-          contactName: this.contactName,
-          contactEmail: this.contactEmail,
-          message: this.contactMessage,
-        });
+        const response = await axios.post(
+          "/.netlify/functions/send-contact-email",
+          {
+            contactName: this.contactName,
+            contactEmail: this.contactEmail,
+            message: this.contactMessage,
+          }
+        );
         this.resetForm();
         this.messages.push({ type: "success", text: response });
       } catch (error) {
