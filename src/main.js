@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import PrismicVue from "@prismicio/vue";
 import linkResolver from "./link-resolver";
+import mdiVue from "mdi-vue/v2";
+import * as mdijs from "@mdi/js";
 
 Vue.config.productionTip = false;
 
@@ -14,6 +16,10 @@ Vue.use(PrismicVue, {
   endpoint,
   apiOptions: { accessToken },
   linkResolver,
+});
+
+Vue.use(mdiVue, {
+  icons: mdijs,
 });
 
 new Vue({
