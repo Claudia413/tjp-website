@@ -1,16 +1,10 @@
 <template>
-  <Layout>
+  <div>
     <section class="section navigation">
       <div class="container sub-navigation">
-        <a class="section-link" href="#what-is"
-          ><h6>What is Physiotherapy?</h6></a
-        >
-        <a class="section-link" href="#treatments"
-          ><h6>When can we help?</h6></a
-        >
-        <a class="section-link" href="#what-to-expect"
-          ><h6>What to expect?</h6></a
-        >
+        <a class="section-link" href="#what-is"><h6>What is Physiotherapy?</h6></a>
+        <a class="section-link" href="#treatments"><h6>When can we help?</h6></a>
+        <a class="section-link" href="#what-to-expect"><h6>What to expect?</h6></a>
         <a class="section-link" href="#techniques"><h6>How do we help?</h6></a>
         <a class="section-link" href="#pricing"><h6>Our prices</h6></a>
         <a class="section-link" href="#acc"><h6>ACC</h6></a>
@@ -21,34 +15,28 @@
       <div class="container">
         <h2 class="emphasize green">What is Physiotherapy?</h2>
         <p>
-          Physiotherapy is a medical profession which aims to speed up your
-          recovery from injury, prevent injuries from occurring in the future
-          and keep you healthy and fit.
+          Physiotherapy is a medical profession which aims to speed up your recovery from injury, prevent injuries from
+          occurring in the future and keep you healthy and fit.
         </p>
         <p>
-          We at Tower Junction Physio know how the body works and our aim is to
-          get your body to work as efficiently as it can to allow you to have a
-          good quality of life. This may involve teaching you about correct
-          posture and positioning when you perform your normal daily activities,
-          work tasks or sporting endeavours.
+          We at Tower Junction Physio know how the body works and our aim is to get your body to work as efficiently as
+          it can to allow you to have a good quality of life. This may involve teaching you about correct posture and
+          positioning when you perform your normal daily activities, work tasks or sporting endeavours.
         </p>
         <p>
-          Treatment is tailored specifically for each individual which is
-          dependent on what the problem is. We will get you to tell us about
-          your injury and show us what movements hurt. In addition we will ask
-          you to perform a range of other movements too before we come to a
-          conclusion and discuss a plan of how to fix the problem.
+          Treatment is tailored specifically for each individual which is dependent on what the problem is. We will get
+          you to tell us about your injury and show us what movements hurt. In addition we will ask you to perform a
+          range of other movements too before we come to a conclusion and discuss a plan of how to fix the problem.
         </p>
         <p>
           <strong
-            >One important thing to note is that getting an injury or pain
-            assessed early often results in a faster recovery.</strong
+            >One important thing to note is that getting an injury or pain assessed early often results in a faster
+            recovery.</strong
           >
         </p>
         <p>
-          Unfortunately sometimes injuries may be very severe and we may need to
-          send you for X-rays, scans or to other Medical Specialists to help
-          with your recovery.
+          Unfortunately sometimes injuries may be very severe and we may need to send you for X-rays, scans or to other
+          Medical Specialists to help with your recovery.
         </p>
       </div>
     </section>
@@ -70,11 +58,7 @@
             </ul>
           </div>
           <div class="category-card">
-            <mdicon
-              name="emoticonHappyOutline"
-              size="43"
-              class="treatment-icon"
-            />
+            <mdicon name="emoticonHappyOutline" size="43" class="treatment-icon" />
             <h4>Relieving pain</h4>
             <ul>
               <li>Back pain</li>
@@ -95,11 +79,7 @@
             </ul>
           </div>
           <div class="category-card">
-            <mdicon
-              name="clipboardAccountOutline"
-              size="43"
-              class="treatment-icon"
-            />
+            <mdicon name="clipboardAccountOutline" size="43" class="treatment-icon" />
 
             <h4>Assessments</h4>
             <ul>
@@ -116,27 +96,23 @@
       <div class="container">
         <h2 class="emphasize green">What to expect?</h2>
         <p>
-          We offer individual personalised care in a comfortable and relaxing
-          environment. All treatments are carried out in individual rooms and
-          all our staff share a commitment to provide patients with the highest
-          possible standard of treatments and service.
+          We offer individual personalised care in a comfortable and relaxing environment. All treatments are carried
+          out in individual rooms and all our staff share a commitment to provide patients with the highest possible
+          standard of treatments and service.
         </p>
         <p>
-          As a Tower Junction Physio patient, we want you to progress as rapidly
-          as possible and we are committed to helping you. We offer a follow up
-          service between appointments if necessary, and also encourage
-          self-help; the more you can do at home the better.
+          As a Tower Junction Physio patient, we want you to progress as rapidly as possible and we are committed to
+          helping you. We offer a follow up service between appointments if necessary, and also encourage self-help; the
+          more you can do at home the better.
         </p>
         <p>
-          We work closely with General Practitioners as well as Sports Medicine,
-          Musculoskeletal and Orthopaedic Specialists. We can refer directly to
-          the appropriate specialist as well as arrange for you to have X-Rays
-          or Ultrasound Scans as necessary.
+          We work closely with General Practitioners as well as Sports Medicine, Musculoskeletal and Orthopaedic
+          Specialists. We can refer directly to the appropriate specialist as well as arrange for you to have X-Rays or
+          Ultrasound Scans as necessary.
         </p>
         <p>
-          We understand that your time is valuable. We try to adhere strictly to
-          appointment times, and as we do not overload our appointment schedule
-          you know you will receive our full attention throughout your visit.
+          We understand that your time is valuable. We try to adhere strictly to appointment times, and as we do not
+          overload our appointment schedule you know you will receive our full attention throughout your visit.
         </p>
       </div>
     </section>
@@ -168,18 +144,10 @@
           </transition>
         </div>
         <div class="technique-accordion">
-          <div
-            v-for="(technique, index) in techniques"
-            class="accordion-container"
-            :key="technique.technique"
-          >
+          <div v-for="(technique, index) in techniques" class="accordion-container" :key="technique.technique">
             <div
               class="accordion-button"
-              :class="
-                closedAccordion == false && techniqueIndex == index
-                  ? 'active'
-                  : ''
-              "
+              :class="closedAccordion == false && techniqueIndex == index ? 'active' : ''"
               @click="setTechniqueShown(index)"
             >
               {{ technique.technique }}
@@ -189,11 +157,7 @@
               <div
                 class="accordion-card"
                 :key="techniqueIndex + closedAccordion"
-                :class="
-                  closedAccordion == false && techniqueIndex == index
-                    ? 'active'
-                    : ''
-                "
+                :class="closedAccordion == false && techniqueIndex == index ? 'active' : ''"
               >
                 <div class="content">
                   <p>{{ techniques[techniqueIndex].description }}</p>
@@ -221,23 +185,18 @@
               <p>$30.00</p>
             </div>
           </div>
-          <p class="subtitle">
-            There may be an additional cost for any materials used during your
-            treatment.
-          </p>
+          <p class="subtitle">There may be an additional cost for any materials used during your treatment.</p>
         </div>
         <div class="pricing-info">
           <h5>Please note:</h5>
           <ul>
             <li>
-              If you are receiving physiotherapy treatment under ACC, or any
-              other insurance company, and they decline the cover of your injury
-              you will be liable for the full cost of your treatment.
+              If you are receiving physiotherapy treatment under ACC, or any other insurance company, and they decline
+              the cover of your injury you will be liable for the full cost of your treatment.
             </li>
             <li>
-              In the event of non-payment of your account, then this will also
-              include all recovery costs, legal fees and commissions that may
-              occur in obtaining payment of the account.
+              In the event of non-payment of your account, then this will also include all recovery costs, legal fees
+              and commissions that may occur in obtaining payment of the account.
             </li>
           </ul>
         </div>
@@ -248,44 +207,36 @@
       <div class="container">
         <h2 class="emphasize green">ACC</h2>
         <p>
-          ACC (Accident Compensation Corporation) provides comprehensive injury
-          cover for patients whose injury was caused by an accident.<br />
-          The accident can be covered if it occurs at work, at home, on a sports
-          field, on a road or in a vehicle-as long as there is a specific date
-          which the injury occurred within the last 12 months and there was an
-          aspect of force involved. For example having a fall, lifting or
-          twisting or being hit by another object.
+          ACC (Accident Compensation Corporation) provides comprehensive injury cover for patients whose injury was
+          caused by an accident.<br />
+          The accident can be covered if it occurs at work, at home, on a sports field, on a road or in a vehicle-as
+          long as there is a specific date which the injury occurred within the last 12 months and there was an aspect
+          of force involved. For example having a fall, lifting or twisting or being hit by another object.
         </p>
         <p>
-          To see a Physiotherapist, you don’t need to have a referral from your
-          GP or Doctor, however if you do we can let them know how you are
-          getting on if you would like us to.
+          To see a Physiotherapist, you don’t need to have a referral from your GP or Doctor, however if you do we can
+          let them know how you are getting on if you would like us to.
         </p>
         <p>
-          All our Physiotherapists are ACC providers which means that they can
-          register a claim for you if you had an accident.
+          All our Physiotherapists are ACC providers which means that they can register a claim for you if you had an
+          accident.
         </p>
+        <p>When receiving ACC treatment there is a co-payment of $30.00 per visit.</p>
         <p>
-          When receiving ACC treatment there is a co-payment of $30.00 per
-          visit.
-        </p>
-        <p>
-          Gradual process ACC claims, those that have occured at work over a
-          gradual time rather than sudddenly, need to be registered by a Doctor.
-          ACC decisions for gradual process claims can be a complex, time
-          consuming procedure. Sometimes these claims are declined but until
-          this decision is made ACC may pay for physio treatment excluding the
-          $25.00 co payment.
+          Gradual process ACC claims, those that have occured at work over a gradual time rather than sudddenly, need to
+          be registered by a Doctor. ACC decisions for gradual process claims can be a complex, time consuming
+          procedure. Sometimes these claims are declined but until this decision is made ACC may pay for physio
+          treatment excluding the $25.00 co payment.
         </p>
       </div>
     </section>
-  </Layout>
+  </div>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: "Treatments",
+    title: "Services",
   },
   data() {
     return {
