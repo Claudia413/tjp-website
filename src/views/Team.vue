@@ -2,7 +2,7 @@
   <section class="team">
     <div class="container">
       <h2 class="emphasize green">{{ document.team_title[0].text }}</h2>
-      <prismic-rich-text :field="document.team_info"></prismic-rich-text>
+      <prismic-rich-text :field="document.team_intro"></prismic-rich-text>
       <div class="grid-team">
         <Teamcard
           v-for="(member, index) in document.slices"
@@ -30,8 +30,8 @@ export default {
   data() {
     return {
       document: {
-        team_title: "",
-        team_info: null,
+        team_title: [{ text: "" }],
+        team_intro: [{ text: "" }],
         slices: null,
       },
     };
@@ -43,7 +43,7 @@ export default {
     async getContent() {
       const response = await this.$prismic.client.getSingle("team_page");
       this.document.team_title = response.data.body[0].primary.team_section;
-      this.document.team_info = response.data.body[0].primary.team_section_intro;
+      this.document.team_intro = response.data.body[0].primary.team_section_intro;
       this.document.slices = response.data.body[0].items;
     },
   },
