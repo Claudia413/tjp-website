@@ -1,15 +1,14 @@
 <template>
   <div class="team-member" :class="even(index) ? '' : 'reverse'">
-    <img
-      src="../assets/placeholderphoto.png"
-      class="team-profile-photo"
-      width="240"
-    />
+    <div v-if="photo === null">
+      <img src="../assets/placeholderphoto.png" class="team-profile-photo" width="320" />
+    </div>
+    <prismic-image v-else :field="photo" class="team-profile-photo" />
     <div class="team-profile-text">
-      <h4>{{ name }}</h4>
-      <p class="subtitle">{{ degree }}</p>
-      <h5>{{ title }}</h5>
-      <p class="team-member-bio">{{ bio }}</p>
+      <prismic-rich-text :field="name" class="h4"></prismic-rich-text>
+      <prismic-rich-text :field="degree" class="subtitle"></prismic-rich-text>
+      <prismic-rich-text class="h5" :field="title" />
+      <prismic-rich-text :field="bio" class="team-member-bio"></prismic-rich-text>
     </div>
   </div>
 </template>
@@ -24,10 +23,10 @@ export default {
   },
   props: {
     index: Number,
-    name: String,
-    title: String,
-    degree: String,
-    bio: String,
+    name: Array,
+    title: Array,
+    degree: Array,
+    bio: Array,
     photo: Object,
   },
   methods: {
@@ -52,12 +51,15 @@ export default {
       text-align: right;
     }
     .team-profile-photo {
-      margin-inline-start: 28px;
+      margin-inline-start: 48px;
     }
   }
   .team-profile-photo {
     border-radius: 50%;
-    margin-inline-end: 28px;
+    margin-inline-end: 48px;
+    height: 320px;
+    width: 320px;
+    border-radius: 50%;
   }
   .team-profile-text {
     max-width: 60%;
@@ -67,7 +69,25 @@ export default {
       margin-bottom: 4px;
       font-family: "Open Sans", sans-serif;
     }
+    .h5 p {
+      font-size: 16px;
+      line-height: 33px;
+      font-weight: bold;
+      font-family: "Hind", Arial, Helvetica, sans-serif;
+      margin: 24px 0;
+    }
+    .subtitle p {
+      margin: 0;
+      font-size: 13px;
+      color: #4d4d4d;
+      line-height: 13px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
+
   @media screen and(max-width: 768px) {
     flex-direction: column;
     &.reverse {
@@ -79,6 +99,7 @@ export default {
     }
     .team-profile-photo {
       width: 200px;
+      height: auto;
       margin-inline-end: 0;
       margin-inline-start: 0;
     }
