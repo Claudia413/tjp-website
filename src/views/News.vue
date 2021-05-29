@@ -39,6 +39,10 @@ export default {
   created() {
     this.getContent();
   },
+  beforeRouteLeave(to, from, next) {
+    this.$store.dispatch("setMobileMenuState");
+    next();
+  },
 };
 </script>
 

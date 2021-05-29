@@ -2,7 +2,7 @@
   <div id="app" class="layout">
     <header class="menubar">
       <div class="container header">
-        <img src="./assets/tjplogo.png" width="240" />
+        <img src="./assets/tjplogo.png" width="240" alt="Tower Junction Physio logo" />
         <nav class="nav" :class="showMobileMenu ? 'show' : ''">
           <router-link class="nav__link" to="/">Home</router-link>
           <router-link class="nav__link" to="/about/">About</router-link>
@@ -42,15 +42,9 @@
           <section class="footer-navigation">
             <p class="strong">Sitemap</p>
             <router-link class="footer_nav_link" to="/">Home</router-link>
-            <router-link class="footer_nav_link" to="/about/"
-              >About</router-link
-            >
-            <router-link class="footer_nav_link" to="/treatments"
-              >Treatments</router-link
-            >
-            <router-link class="footer_nav_link" to="/contact"
-              >Contact</router-link
-            >
+            <router-link class="footer_nav_link" to="/about/">About</router-link>
+            <router-link class="footer_nav_link" to="/treatments">Treatments</router-link>
+            <router-link class="footer_nav_link" to="/contact">Contact</router-link>
             <router-link class="footer_nav_link" to="/faq">FAQ</router-link>
             <router-link class="footer_nav_link" to="/news">News</router-link>
           </section>
@@ -97,17 +91,18 @@
 
 <script>
 import "./assets/styles.scss";
+import { mapState } from "vuex";
+
 export default {
   data() {
-    return {
-      showMobileMenu: false,
-    };
+    return {};
   },
   methods: {
     toggleShowMobileMenu() {
-      this.showMobileMenu = !this.showMobileMenu;
+      this.$store.dispatch("setMobileMenuState");
     },
   },
+  computed: mapState(["showMobileMenu"]),
 };
 </script>
 

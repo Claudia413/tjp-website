@@ -320,6 +320,10 @@ export default {
       this.closedAccordion = bool;
     },
   },
+  beforeRouteLeave(to, from, next) {
+    this.$store.dispatch("setMobileMenuState");
+    next();
+  },
 };
 </script>
 
