@@ -30,7 +30,7 @@
       <div class="container">
         <div class="footer">
           <section class="hours">
-            <p class="strong">Opening hours</p>
+            <h6 class="strong">Opening hours</h6>
             <p>Monday: 7am -8pm</p>
             <p>Tuesdag: 7am -8pm</p>
             <p>Wednesday: 7am -8pm</p>
@@ -40,7 +40,7 @@
             <p>Sunday: closed</p>
           </section>
           <section class="footer-navigation">
-            <p class="strong">Sitemap</p>
+            <h6 class="strong">Sitemap</h6>
             <router-link class="footer_nav_link" to="/">Home</router-link>
             <router-link class="footer_nav_link" to="/about/">About</router-link>
             <router-link class="footer_nav_link" to="/treatments">Treatments</router-link>
@@ -50,11 +50,11 @@
           </section>
           <section class="contact">
             <address class="footer-address">
-              <p class="strong">Call us at:</p>
-              <p>
+              <h6 class="strong hide-mobile">Call us at:</h6>
+              <p class="hide-mobile">
                 <a href="tel:033434345" class="phonenumber">(03) 34 34 345</a>
               </p>
-              <p class="strong">Find us at:</p>
+              <h6 class="strong">Find us at:</h6>
               <p>
                 109 Clarence Street<br />
                 Riccarton<br />
@@ -261,18 +261,25 @@ footer {
   padding-bottom: 12px;
   color: white;
   font-size: 13px;
+  h6 {
+    margin: 0;
+    font-size: 18px;
+  }
   .strong {
     font-weight: bold;
   }
   .hours {
+    grid-area: hours;
     p {
-      line-height: 1;
+      line-height: 16px;
+      margin: 0.5em 0;
     }
   }
   .footer-address {
+    grid-area: address;
     font-style: normal;
     p {
-      line-height: 1;
+      line-height: 18px;
     }
     .phonenumber {
       text-decoration: none;
@@ -280,26 +287,50 @@ footer {
     }
   }
   .location {
+    grid-area: map;
     img {
       margin-top: 16px;
       max-width: 100%;
     }
   }
-  .footer-navigation {
-    display: flex;
-    flex-direction: column;
+  .footer_nav_link {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 0.5em 0;
+    font-family: "Hind", arial;
+  }
+  @media only screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "hours address"
+      "button map"
+      "sitemap sitemap";
+    h6 {
+      font-size: 16px;
+    }
     p {
-      line-height: 1;
+      font-size: 14px;
+    }
+    .footer-navigation {
+      grid-area: sitemap;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-content: space-between;
+      justify-content: space-between;
+      margin-top: 20px;
     }
     .footer_nav_link {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      line-height: 1;
-      margin-block-start: 0;
-      margin-block-end: 1em;
-      font-family: "Hind", arial;
       display: inline-block;
+      font-size: 16px;
+    }
+    .hide-mobile {
+      display: none;
     }
   }
 }
