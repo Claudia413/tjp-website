@@ -1,16 +1,16 @@
 <template>
   <div class="about">
-    <section v-for="slice in document.body" :key="slice.id">
-      <template v-if="slice.slice_type === 'text_block'" class="mission">
+    <div v-for="slice in document.body" :key="slice.id">
+      <section v-if="slice.slice_type === 'text_block'" class="mission">
         <div class="container">
           <h2 class="emphasize white">
             {{ slice.primary.title[0].text }}
           </h2>
           <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
         </div>
-      </template>
+      </section>
 
-      <template v-if="slice.slice_type === 'timeline'" class="history">
+      <section v-if="slice.slice_type === 'timeline'" class="history">
         <div class="container">
           <h2 class="emphasize green">
             {{ slice.primary.title[0].text }}
@@ -27,8 +27,8 @@
             </TimelineEvent>
           </div>
         </div>
-      </template>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
