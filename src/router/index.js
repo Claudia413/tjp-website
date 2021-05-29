@@ -1,9 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Team from "../views/Team.vue";
-import Services from "../views/Services.vue";
-import News from "../views/News.vue";
 
 Vue.use(VueRouter);
 
