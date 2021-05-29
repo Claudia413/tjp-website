@@ -1,16 +1,16 @@
 <template>
   <div class="about">
-    <div v-for="slice in document.body" :key="slice.id">
-      <section v-if="slice.slice_type === 'text_block'" class="mission">
+    <section v-for="slice in document.body" :key="slice.id">
+      <template v-if="slice.slice_type === 'text_block'" class="mission">
         <div class="container">
           <h2 class="emphasize white">
             {{ slice.primary.title[0].text }}
           </h2>
           <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
         </div>
-      </section>
+      </template>
 
-      <section v-if="slice.slice_type === 'timeline'" class="history">
+      <template v-if="slice.slice_type === 'timeline'" class="history">
         <div class="container">
           <h2 class="emphasize green">
             {{ slice.primary.title[0].text }}
@@ -27,8 +27,8 @@
             </TimelineEvent>
           </div>
         </div>
-      </section>
-    </div>
+      </template>
+    </section>
   </div>
 </template>
 
@@ -95,10 +95,6 @@ h2 {
     }
   }
 }
-.grid-team {
-  display: flex;
-  flex-direction: column;
-}
 .mission {
   background-color: #add145;
   color: #4d4d4d;
@@ -106,7 +102,6 @@ h2 {
     color: #1e2e4d;
   }
 }
-.team,
 .mission,
 .history {
   padding: 20px 0;
