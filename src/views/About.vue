@@ -6,7 +6,7 @@
           <h2 class="emphasize white">
             {{ slice.primary.title[0].text }}
           </h2>
-          <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
+          <prismic-rich-text class="darker" :field="slice.primary.text"></prismic-rich-text>
         </div>
       </section>
 
@@ -26,6 +26,22 @@
             >
             </TimelineEvent>
           </div>
+        </div>
+      </section>
+      <section v-if="slice.slice_type === 'text_and_image'" class="vision-values">
+        <div class="container text-img-split">
+          <div class="text">
+            <div class="vision">
+              <h2 class="emphasize green">{{ slice.primary.title1[0].text }}</h2>
+              <prismic-rich-text :field="slice.primary.text_block1" />
+            </div>
+            <div class="values">
+              <h2 class="emphasize green">{{ slice.primary.title2[0].text }}</h2>
+              <prismic-rich-text :field="slice.primary.text_block2" />
+            </div>
+          </div>
+          <prismic-image :field="slice.primary.image" class="portrait" />
+          <!-- <img src="../assets/rowerportrait.jpg" class="portrait" /> -->
         </div>
       </section>
     </div>
@@ -101,12 +117,35 @@ h2 {
   h2 {
     color: #1e2e4d;
   }
+  .darker {
+    color: #2e2e2e;
+  }
 }
 .mission,
 .history {
   padding: 20px 0;
 }
-.timeline {
+.timeline,
+.vision-values,
+.mission {
   margin-bottom: 40px;
+}
+.text-img-split {
+  display: flex;
+  justify-content: space-between;
+  .vision {
+    margin-bottom: 80px;
+  }
+  .portrait {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+  }
+  .text {
+    max-width: 50%;
+  }
+  h2 {
+    margin-top: 0;
+  }
 }
 </style>
