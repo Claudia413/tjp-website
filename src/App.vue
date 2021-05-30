@@ -109,8 +109,15 @@ export default {
 <style lang="scss">
 .layout {
   width: 100%;
+  height: 100%;
   margin: 0;
   box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
 }
 
 .container {
@@ -132,6 +139,7 @@ export default {
 }
 
 .header {
+  grid-area: header;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -249,8 +257,13 @@ export default {
   left: 50%;
 }
 
+main {
+  grid-area: main;
+}
 footer {
+  grid-area: footer;
   background-color: #1e2e4d;
+  width: 100%;
 }
 
 .footer {
