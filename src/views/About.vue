@@ -58,7 +58,7 @@ export default {
     this.getContent();
   },
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuState");
+    this.$store.dispatch("setMobileMenuStateFalse");
     next();
   },
 };

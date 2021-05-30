@@ -20,6 +20,9 @@ export default new Vuex.Store({
         commit("SET_SHOW_MOBILE_MENU", false);
       }
     },
+    setMobileMenuStateFalse({ commit }) {
+      commit("SET_SHOW_MOBILE_MENU", false);
+    },
   },
   modules: {},
 });

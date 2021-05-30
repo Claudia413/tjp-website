@@ -59,7 +59,7 @@ export default {
   },
   components: { ContactForm },
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuState");
+    this.$store.dispatch("setMobileMenuStateFalse");
     next();
   },
 };
