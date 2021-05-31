@@ -45,19 +45,16 @@
         publicly on Github
         <a href="https://github.com/Claudia413/tjp-website/">here</a>
       </p>
-      <contact-form />
     </section>
   </div>
 </template>
 
 <script>
-import ContactForm from "../components/ContactForm";
-
 export default {
   metaInfo: {
     title: "Homepage",
   },
-  components: { ContactForm },
+  components: {},
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse");
     next();
