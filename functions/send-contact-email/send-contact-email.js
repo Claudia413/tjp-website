@@ -19,7 +19,13 @@ exports.handler = async (event) => {
     from: FROM_EMAIL_ADDRESS, // Change to your verified sender
     subject: "New message from website contact form",
     text: `${data.message}`,
-    html: `<strong>${data.message}</strong>`,
+    html: `<strong>
+    <h6>Hello, a new form was submitted through your website Tower Junction Physio.<h6>
+    <p>The following information was sent</p>
+    <p>Name: ${data.contactName}</p>
+    <p>Phone-number: ${data.contactPhone}</p>
+    <p>Message:${data.message}</p>
+    </strong>`,
   };
   try {
     await sgMail.send(msg);
