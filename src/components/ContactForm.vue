@@ -38,12 +38,12 @@
         aria-label="Name"
         @change="contactNameError = false"
       />
-      <label for="email">Your phonenumber</label>
+      <label for="phone">Your phonenumber</label>
       <input
-        type="email"
+        type="phone-number"
         autocapitalize="off"
         autocorrect="off"
-        id="email"
+        id="phone"
         v-model="contactPhone"
         size="50"
         placeholder="027-1234567"
@@ -139,7 +139,7 @@ export default {
       try {
         const response = await axios.post("/.netlify/functions/send-contact-email", {
           contactName: this.contactName,
-          contactEmail: this.contactEmail,
+          contactPhone: this.contactPhone,
           message: this.contactMessage,
         });
         this.resetForm();

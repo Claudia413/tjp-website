@@ -10,7 +10,7 @@ exports.handler = async (event) => {
 
   const data = JSON.parse(event.body);
   console.log("evnt", event);
-  if (!data.message || !data.contactName || !data.contactEmail) {
+  if (!data.message || !data.contactName || !data.contactPhone) {
     return { statusCode: 422, body: "Name, email, and message are required." };
   }
 
