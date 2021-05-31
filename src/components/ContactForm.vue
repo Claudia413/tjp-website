@@ -2,20 +2,9 @@
   <div class="sign-up">
     <form>
       <!-- people should not fill these in and expect good things -->
-      <div
-        class="form-fields"
-        aria-label="Please leave the following three fields empty"
-      >
+      <div class="form-fields" aria-label="Please leave the following three fields empty">
         <label for="b_name">Name: </label>
-        <input
-          type="text"
-          v-model="b_name"
-          name="b_name"
-          tabindex="-1"
-          value=""
-          placeholder="Freddie"
-          id="b_name"
-        />
+        <input type="text" v-model="b_name" name="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name" />
 
         <label for="b_email">Email: </label>
         <input
@@ -38,38 +27,42 @@
         ></textarea>
       </div>
       <!-- Back to normal form fields -->
+      <label for="email">Your name</label>
       <input
         type="text"
         id="name"
         v-model="contactName"
         size="50"
-        placeholder="Name"
-        class="contact-field"
+        placeholder="First name Last name"
+        :class="contactNameError ? 'contact-field error' : 'contact-field'"
         aria-label="Name"
+        @change="contactNameError = false"
       />
+      <label for="email">Your phonenumber</label>
       <input
         type="email"
         autocapitalize="off"
         autocorrect="off"
         id="email"
-        v-model="contactEmail"
+        v-model="contactPhone"
         size="50"
-        placeholder="E-mail address"
-        class="contact-field"
-        aria-label="E-mail address"
+        placeholder="027-1234567"
+        :class="contactPhoneError ? 'contact-field error' : 'contact-field'"
+        aria-label="Phone number used to schedule appointment"
+        @change="contactPhoneError = false"
       />
+      <label for="message">A short description of how we can help </label>
       <input
         type="message"
         id="message"
         v-model="contactMessage"
         size="200"
-        placeholder="Your message"
-        class="contact-field"
+        placeholder="I injured my shoulder"
+        :class="contactMessageError ? 'contact-field error' : 'contact-field'"
         aria-label="Short description of your problem"
+        @change="contactMessageError = false"
       />
-      <div class="button" type="submit" @click="sendMessage()">
-        click here to send
-      </div>
+      <div class="button" type="submit" @click="checkForm()">Send</div>
       <article
         v-for="msg in messages"
         :key="msg.text"
@@ -77,7 +70,10 @@
         :class="msg.type === 'success' ? 'is-success' : 'is-danger'"
       >
         <div class="message-body">
-          {{ msg.text.data }}
+          <p v-if="msg.type === 'error'">
+            Oops. We're very sorry but something went wrong sending your message. Please give us a call instead.
+          </p>
+          <p v-if="msg.type === 'succes'">Message succesfully send! We'll be in touch soon.</p>
         </div>
       </article>
     </form>
@@ -93,14 +89,34 @@ export default {
     return {
       messages: [],
       contactName: "",
-      contactEmail: "",
+      contactPhone: "",
       contactMessage: "",
       b_name: "",
       b_email: "",
       b_message: "",
+      contactNameError: false,
+      contactPhoneError: false,
+      contactMessageError: false,
     };
   },
   methods: {
+    checkForm() {
+      this.contactNameError = false;
+      this.contactPhoneError = false;
+      this.contactMessageError = false;
+      if (this.contactName === "") {
+        this.contactNameError = true;
+      }
+      if (this.contactPhone === "") {
+        this.contactPhoneError = true;
+      }
+      if (this.contactMessage === "") {
+        this.contactMessageError = true;
+      }
+      if (this.contactNameError === false && this.contactPhoneError === false && this.contactMessageError === false) {
+        this.sendMessage();
+      }
+    },
     sendMessage() {
       this.messages = [];
       if (this.b_name === "" && this.b_email === "" && this.b_message === "") {
@@ -113,19 +129,19 @@ export default {
     resetForm() {
       this.messages = [];
       this.contactName = "";
-      this.contactEmail = "";
+      this.contactPhone = "";
       this.contactMessage = "";
+      this.contactNameError = false;
+      this.contactPhoneError = false;
+      this.contactMessageError = false;
     },
     async triggerSendMessageFunction() {
       try {
-        const response = await axios.post(
-          "/.netlify/functions/send-contact-email",
-          {
-            contactName: this.contactName,
-            contactEmail: this.contactEmail,
-            message: this.contactMessage,
-          }
-        );
+        const response = await axios.post("/.netlify/functions/send-contact-email", {
+          contactName: this.contactName,
+          contactEmail: this.contactEmail,
+          message: this.contactMessage,
+        });
         this.resetForm();
         this.messages.push({ type: "success", text: response });
       } catch (error) {
@@ -145,17 +161,21 @@ form {
   }
   .contact-field {
     display: block;
-    border: none;
+    border: 2px solid #444444;
     height: 24px;
     width: 256px;
-    color: black;
+    color: #333333;
     margin-bottom: 16px;
     padding: 8px;
+    outline: none;
+    &.error {
+      border-style: dashed;
+      border-color: rgb(216, 40, 40);
+    }
   }
   label {
     display: flex;
     align-items: center;
-    color: blue;
     font-family: "Karla", sans-serif;
     font-size: 14px;
     margin-bottom: 12px;
@@ -171,11 +191,19 @@ form {
     margin-top: 12px;
   }
   .button {
-    border: 1px solid pink;
+    border: 1px solid #8bb900;
     display: inline-block;
-    padding: 8px;
+    padding: 8px 40px;
+    background-color: #99cc00;
     margin-bottom: 20px;
     cursor: pointer;
+    font-size: 14px;
   }
+}
+.is-success {
+  color: #6a8d00;
+}
+.is-danger {
+  color: rgb(216, 40, 40);
 }
 </style>

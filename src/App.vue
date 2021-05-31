@@ -7,8 +7,9 @@
           <router-link class="nav__link" to="/">Home</router-link>
           <router-link class="nav__link" to="/about/">About</router-link>
           <router-link class="nav__link" to="/team/">Team</router-link>
-          <router-link class="nav__link" to="/treatments">Services</router-link>
+          <router-link class="nav__link" to="/services">Services</router-link>
           <router-link class="nav__link" to="/news">News</router-link>
+          <router-link class="nav__link" to="/contact">Contact</router-link>
         </nav>
         <div
           class="nav-icon"
@@ -43,7 +44,7 @@
             <h6 class="strong">Sitemap</h6>
             <router-link class="footer_nav_link" to="/">Home</router-link>
             <router-link class="footer_nav_link" to="/about/">About</router-link>
-            <router-link class="footer_nav_link" to="/treatments">Treatments</router-link>
+            <router-link class="footer_nav_link" to="/services">Treatments</router-link>
             <router-link class="footer_nav_link" to="/contact">Contact</router-link>
             <router-link class="footer_nav_link" to="/faq">FAQ</router-link>
             <router-link class="footer_nav_link" to="/news">News</router-link>
