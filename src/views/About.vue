@@ -30,18 +30,16 @@
       </section>
       <section v-if="slice.slice_type === 'text_and_image'" class="vision-values">
         <div class="container text-img-split">
-          <div class="text">
-            <div class="vision">
-              <h2 class="emphasize green">{{ slice.primary.title1[0].text }}</h2>
-              <prismic-rich-text :field="slice.primary.text_block1" />
-            </div>
-            <div class="values">
-              <h2 class="emphasize green">{{ slice.primary.title2[0].text }}</h2>
-              <prismic-rich-text :field="slice.primary.text_block2" />
-            </div>
+          <div class="vision">
+            <h2 class="emphasize green">{{ slice.primary.title1[0].text }}</h2>
+            <prismic-rich-text :field="slice.primary.text_block1" />
           </div>
+          <div class="values">
+            <h2 class="emphasize green">{{ slice.primary.title2[0].text }}</h2>
+            <prismic-rich-text :field="slice.primary.text_block2" />
+          </div>
+          <prismic-image :field="slice.primary.image_mobile" class="landscape" />
           <prismic-image :field="slice.primary.image" class="portrait" />
-          <!-- <img src="../assets/rowerportrait.jpg" class="portrait" /> -->
         </div>
       </section>
     </div>
@@ -121,31 +119,75 @@ h2 {
     color: #2e2e2e;
   }
 }
-.mission,
-.history {
-  padding: 20px 0;
-}
-.timeline,
-.vision-values,
+.history,
 .mission {
-  margin-bottom: 40px;
+  padding: 40px 0;
 }
+
+.history,
+.mission,
+.vision-values {
+  margin-bottom: 80px;
+}
+
 .text-img-split {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "vision img"
+    "values img";
   .vision {
+    grid-area: vision;
     margin-bottom: 80px;
   }
+  .values {
+    grid-area: values;
+  }
   .portrait {
-    width: 40%;
-    height: auto;
+    grid-area: img;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
-  .text {
-    max-width: 50%;
+  .landscape {
+    display: none;
   }
   h2 {
     margin-top: 0;
+  }
+  @media screen and(max-width:1200px) {
+    grid-template-columns: 40% 60%;
+  }
+  @media screen and(max-width:991px) {
+    column-gap: 0;
+    grid-template-areas:
+      "vision vision"
+      "img img"
+      "values values";
+    .portrait {
+      display: none;
+    }
+    .landscape {
+      grid-area: img;
+      display: block;
+      position: relative;
+      left: -80px;
+      width: calc(100% + 160px);
+      height: auto;
+      object-fit: cover;
+    }
+    .values {
+      margin-top: 80px;
+    }
+  }
+  @media screen and(max-width: 768px) {
+    .portrait {
+      position: relative;
+      left: -32px;
+      width: calc(100% + 64px);
+    }
   }
 }
 </style>
