@@ -36,6 +36,5 @@ exports.handler = async (event) => {
       body: `error: ${error}`,
     };
   }
-  console.log("Email sent");
   return { statusCode: 200, body: "Your message was successfully sent!" };
 };
