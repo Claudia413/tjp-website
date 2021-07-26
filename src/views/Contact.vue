@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm"
 export default {
   metaInfo: {
     title: "Contact",
@@ -20,7 +20,7 @@ export default {
         page_title: "",
         slices: null,
       },
-    };
+    }
   },
   components: { ContactForm },
   methods: {
@@ -34,10 +34,10 @@ export default {
     // this.getContent();
   },
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuStateFalse");
-    next();
+    this.$store.dispatch("setMobileMenuStateFalse")
+    next()
   },
-};
+}
 </script>
 
 <style lang="scss"></style>

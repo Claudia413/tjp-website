@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Teamcard from "../components/Teamcard.vue";
+import Teamcard from "../components/TeamCard.vue"
 export default {
   metaInfo: {
     title: "Team",
@@ -34,27 +34,27 @@ export default {
         team_intro: [{ text: "" }],
         slices: null,
       },
-    };
+    }
   },
   components: {
     Teamcard,
   },
   methods: {
     async getContent() {
-      const response = await this.$prismic.client.getSingle("team_page");
-      this.document.team_title = response.data.body[0].primary.team_section;
-      this.document.team_intro = response.data.body[0].primary.team_section_intro;
-      this.document.slices = response.data.body[0].items;
+      const response = await this.$prismic.client.getSingle("team_page")
+      this.document.team_title = response.data.body[0].primary.team_section
+      this.document.team_intro = response.data.body[0].primary.team_section_intro
+      this.document.slices = response.data.body[0].items
     },
   },
   created() {
-    this.getContent();
+    this.getContent()
   },
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuStateFalse");
-    next();
+    this.$store.dispatch("setMobileMenuStateFalse")
+    next()
   },
-};
+}
 </script>
 
 <style lang="scss">

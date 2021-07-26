@@ -7,24 +7,10 @@
         <input type="text" v-model="b_name" name="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name" />
 
         <label for="b_email">Email: </label>
-        <input
-          type="email"
-          v-model="b_email"
-          name="b_email"
-          tabindex="-1"
-          value=""
-          placeholder="youremail@gmail.com"
-          id="b_email"
-        />
+        <input type="email" v-model="b_email" name="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email" />
 
         <label for="b_comment">How can we help: </label>
-        <textarea
-          name="b_comment"
-          v-model="b_message"
-          tabindex="-1"
-          placeholder="Please comment"
-          id="b_comment"
-        ></textarea>
+        <textarea name="b_comment" v-model="b_message" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
       </div>
       <!-- Back to normal form fields -->
       <label for="email">Your name</label>
@@ -63,12 +49,7 @@
         @change="contactMessageError = false"
       />
       <div class="button" type="submit" @click="checkForm()">Send</div>
-      <article
-        v-for="msg in messages"
-        :key="msg.text"
-        class="message"
-        :class="msg.type === 'success' ? 'is-success' : 'is-danger'"
-      >
+      <article v-for="msg in messages" :key="msg.text" class="message" :class="msg.type === 'success' ? 'is-success' : 'is-danger'">
         <div class="message-body">
           <p v-if="msg.type === 'error'">
             Oops. We're very sorry but something went wrong sending your message. Please give us a call instead.
@@ -81,7 +62,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 
 export default {
   name: "ContactForm",
@@ -97,43 +78,43 @@ export default {
       contactNameError: false,
       contactPhoneError: false,
       contactMessageError: false,
-    };
+    }
   },
   methods: {
     checkForm() {
-      this.contactNameError = false;
-      this.contactPhoneError = false;
-      this.contactMessageError = false;
+      this.contactNameError = false
+      this.contactPhoneError = false
+      this.contactMessageError = false
       if (this.contactName === "") {
-        this.contactNameError = true;
+        this.contactNameError = true
       }
       if (this.contactPhone === "") {
-        this.contactPhoneError = true;
+        this.contactPhoneError = true
       }
       if (this.contactMessage === "") {
-        this.contactMessageError = true;
+        this.contactMessageError = true
       }
       if (this.contactNameError === false && this.contactPhoneError === false && this.contactMessageError === false) {
-        this.sendMessage();
+        this.sendMessage()
       }
     },
     sendMessage() {
-      this.messages = [];
+      this.messages = []
       if (this.b_name === "" && this.b_email === "" && this.b_message === "") {
-        this.triggerSendMessageFunction();
+        this.triggerSendMessageFunction()
       }
     },
     cancelMessage() {
-      this.resetForm();
+      this.resetForm()
     },
     resetForm() {
-      this.messages = [];
-      this.contactName = "";
-      this.contactPhone = "";
-      this.contactMessage = "";
-      this.contactNameError = false;
-      this.contactPhoneError = false;
-      this.contactMessageError = false;
+      this.messages = []
+      this.contactName = ""
+      this.contactPhone = ""
+      this.contactMessage = ""
+      this.contactNameError = false
+      this.contactPhoneError = false
+      this.contactMessageError = false
     },
     async triggerSendMessageFunction() {
       try {
@@ -141,16 +122,16 @@ export default {
           contactName: this.contactName,
           contactPhone: this.contactPhone,
           message: this.contactMessage,
-        });
-        this.resetForm();
-        this.messages.push({ type: "success", text: response });
+        })
+        this.resetForm()
+        this.messages.push({ type: "success", text: response })
       } catch (error) {
-        console.log("error", error);
-        this.messages.push({ type: "error", text: error.response });
+        console.log("error", error)
+        this.messages.push({ type: "error", text: error.response })
       }
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">

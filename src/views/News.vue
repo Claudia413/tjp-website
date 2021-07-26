@@ -26,24 +26,24 @@ export default {
         page_title: "",
         slices: null,
       },
-    };
+    }
   },
   components: {},
   methods: {
     async getContent() {
-      const response = await this.$prismic.client.getSingle("news_page");
-      this.document.page_title = response.data.title[0].text;
-      this.document.slices = response.data.body;
+      const response = await this.$prismic.client.getSingle("news_page")
+      this.document.page_title = response.data.title[0].text
+      this.document.slices = response.data.body
     },
   },
   created() {
-    this.getContent();
+    this.getContent()
   },
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuStateFalse");
-    next();
+    this.$store.dispatch("setMobileMenuStateFalse")
+    next()
   },
-};
+}
 </script>
 
 <style lang="scss">

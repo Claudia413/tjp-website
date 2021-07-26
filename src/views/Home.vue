@@ -1,18 +1,13 @@
 <template>
   <div class="home">
     <section class="homepage-header">
-      <img
-        class="header-image"
-        alt="Runner in a field with mountains in the back"
-        src="../assets/headerhomepagerunner.jpg"
-        width="1600"
-      />
+      <img class="header-image" alt="Runner in a field with mountains in the back" src="../assets/headerhomepagerunner.jpg" width="1600" />
     </section>
     <section class="container">
       <h1>Hi there!</h1>
       <p>
-        This page has not yet received much love and attention. The other pages, which you can access through the menu
-        above, have more information and features to look at.
+        This page has not yet received much love and attention. The other pages, which you can access through the menu above, have more
+        information and features to look at.
       </p>
       <p>Some features that might be a nice idea for this homepage:</p>
       <ul>
@@ -22,8 +17,7 @@
         <li>Short introduction to different services offered, possibly with a link to the treatments page</li>
         <li>Some frequently asked questions and answers</li>
         <li>
-          A small bar with a warning for covid-19 updates that refers to the new page, could be turned off and on as
-          situation changes
+          A small bar with a warning for covid-19 updates that refers to the new page, could be turned off and on as situation changes
         </li>
       </ul>
       <p>Other ideas that could be nice:</p>
@@ -32,17 +26,14 @@
         <li>Link to Google maps for the location</li>
         <li>Pictures of inside the practise</li>
       </ul>
+      <p>This website has been build with VueJS and Gridsome to make it really fast and is currently hosted on Netlify</p>
       <p>
-        This website has been build with VueJS and Gridsome to make it really fast and is currently hosted on Netlify
-      </p>
-      <p>
-        All the content currently on here is put in the code. For easy management by you or someone in the team in the
-        future I would set it up with Prismic.io.
+        All the content currently on here is put in the code. For easy management by you or someone in the team in the future I would set it
+        up with Prismic.io.
         <a href="https://prismic.io/">More info on Prismic here</a>
       </p>
       <p>
-        If you're curious about the code, I have no secrets, it's properly structured and documented and it is available
-        publicly on Github
+        If you're curious about the code, I have no secrets, it's properly structured and documented and it is available publicly on Github
         <a href="https://github.com/Claudia413/tjp-website/">here</a>
       </p>
     </section>
@@ -56,10 +47,10 @@ export default {
   },
   components: {},
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuStateFalse");
-    next();
+    this.$store.dispatch("setMobileMenuStateFalse")
+    next()
   },
-};
+}
 </script>
 
 <style>

@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import TimelineEvent from "../components/TimelineEvent.vue";
+import TimelineEvent from "../components/TimelineEvent.vue"
 
 export default {
   name: "About",
@@ -57,25 +57,25 @@ export default {
   data() {
     return {
       document: { body: null },
-    };
+    }
   },
   components: {
     TimelineEvent,
   },
   methods: {
     async getContent() {
-      const response = await this.$prismic.client.getSingle("about_page");
-      this.document = response.data;
+      const response = await this.$prismic.client.getSingle("about_page")
+      this.document = response.data
     },
   },
   created() {
-    this.getContent();
+    this.getContent()
   },
   beforeRouteLeave(to, from, next) {
-    this.$store.dispatch("setMobileMenuStateFalse");
-    next();
+    this.$store.dispatch("setMobileMenuStateFalse")
+    next()
   },
-};
+}
 </script>
 
 <style lang="scss">

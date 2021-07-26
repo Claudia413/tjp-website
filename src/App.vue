@@ -11,12 +11,7 @@
           <router-link class="nav__link" to="/news">News</router-link>
           <router-link class="nav__link" to="/contact">Contact</router-link>
         </nav>
-        <div
-          class="nav-icon"
-          @click="toggleShowMobileMenu()"
-          :class="showMobileMenu ? 'open' : ''"
-          title="toggle mobile menu"
-        >
+        <div class="nav-icon" @click="toggleShowMobileMenu()" :class="showMobileMenu ? 'open' : ''" title="toggle mobile menu">
           <span></span>
           <span></span>
           <span></span>
@@ -91,20 +86,20 @@
 </template>
 
 <script>
-import "./assets/styles.scss";
-import { mapState } from "vuex";
+import "./assets/styles.scss"
+import { mapState } from "vuex"
 
 export default {
   data() {
-    return {};
+    return {}
   },
   methods: {
     toggleShowMobileMenu() {
-      this.$store.dispatch("setMobileMenuState");
+      this.$store.dispatch("setMobileMenuState")
     },
   },
   computed: mapState(["showMobileMenu"]),
-};
+}
 </script>
 
 <style lang="scss">

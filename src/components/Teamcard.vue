@@ -16,10 +16,10 @@
 <script>
 export default {
   metaInfo: {
-    title: "About us",
+    title: "Team card",
   },
   data() {
-    return {};
+    return {}
   },
   props: {
     index: Number,
@@ -31,10 +31,10 @@ export default {
   },
   methods: {
     even(i) {
-      return i % 2 == 0;
+      return i % 2 == 0
     },
   },
-};
+}
 </script>
 
 <style lang="scss">

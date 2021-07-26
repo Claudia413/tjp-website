@@ -15,7 +15,7 @@ export default {
     title: "About us",
   },
   data() {
-    return {};
+    return {}
   },
   props: {
     index: Number,
@@ -24,10 +24,10 @@ export default {
   },
   methods: {
     even(i) {
-      return i % 2 == 0;
+      return i % 2 == 0
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
