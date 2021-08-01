@@ -266,7 +266,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 12px;
+  padding-top: 48px;
   padding-bottom: 12px;
   color: white;
   font-size: 13px;
@@ -288,6 +288,7 @@ footer {
     grid-area: address;
     font-style: normal;
     p {
+      margin-block-start: 0.5em;
       line-height: 18px;
     }
     .phonenumber {

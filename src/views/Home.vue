@@ -20,7 +20,7 @@
           A small bar with a warning for covid-19 updates that refers to the new page, could be turned off and on as situation changes
         </li>
       </ul>
-      <p>Other ideas that could be nice:</p>
+      <!-- <p>Other ideas that could be nice:</p>
       <ul>
         <li>An icon that shows in the tab of the browser instead of the default one</li>
         <li>Link to Google maps for the location</li>
@@ -35,7 +35,18 @@
       <p>
         If you're curious about the code, I have no secrets, it's properly structured and documented and it is available publicly on Github
         <a href="https://github.com/Claudia413/tjp-website/">here</a>
-      </p>
+      </p> -->
+    </section>
+    <section class="contact cta">
+      <img class="cta-img" src="../assets/FieldHike.jpg" />
+      <div class="overlay">
+        <div class="container">
+          <h2 class="emphasize green">Contact us for an appointment today</h2>
+          <p>Call (03) 34 34 345</p>
+          <p>or</p>
+          <p>Fill out our contact form and we will call you</p>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -53,7 +64,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .home-links a {
   margin-right: 1rem;
 }
@@ -67,5 +78,69 @@ export default {
   height: auto;
   max-height: 450px;
   object-fit: cover;
+}
+
+h2 {
+  color: #333333;
+  &.emphasize {
+    &:after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 4px;
+      animation: show 0.4s ease forwards;
+    }
+    &.green {
+      &:after {
+        background-color: #99cc00;
+      }
+    }
+    &.white {
+      &:after {
+        background-color: white;
+      }
+    }
+    @keyframes show {
+      from {
+        width: 0px;
+      }
+      to {
+        width: 40px;
+      }
+    }
+  }
+}
+.cta {
+  height: 380px;
+  width: 100%;
+  position: relative;
+  .container {
+    padding: 40px 0;
+  }
+}
+.cta-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  object-position: 380px 85%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 58, 0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 58, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 58, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 </style>
