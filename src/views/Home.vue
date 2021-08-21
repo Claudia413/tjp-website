@@ -1,22 +1,38 @@
 <template>
   <div class="home">
     <section class="homepage-header">
-      <img class="header-image" alt="Runner in a field with mountains in the back" src="../assets/headerhomepagerunner.jpg" width="1600" />
+      <img class="header-image" alt="Runner in a field with mountains in the back" src="../assets/headerhomepagetest.jpg" width="1600" />
     </section>
 
-    <section class="vision-values">
+    <section class="introduction">
       <div class="container text-img-split">
-        <div class="welcome">
+        <div class="content-text">
           <h2 class="emphasize green">Welcome to Tower Junction Physio</h2>
           <p>Here comes a super nice blurb to welcome website visitors.</p>
           <p>
             At Tower Junction Physio our aim is to help you recover from a (sports) injury in a timely and effective way, so you can move
-            freely and painfree again. We specialize in shoulder, neck and feet, but with our many years of experience we can assist in many
-            other areas as well. Feel free to call us and discuss how we can best help you.
+            freely and painfree again. We specialize in shoulder, neck and feet, but with our many years of experience we can also assist
+            confidently in other areas. Feel free to call us and discuss how we can best help you.
           </p>
         </div>
 
         <img src="../assets/placeholderphoto.png" alt="placeholder photo, nothing to see here unfortunately" class="photo" />
+      </div>
+    </section>
+
+    <section class="team">
+      <div class="container text-img-split reverse">
+        <div class="content-text">
+          <h2 class="emphasize green">Our Team</h2>
+          <p>
+            Our team is passionate about helping you get back on your feet, or on your bike, whatever the injury is. Our knowledgeable and
+            experienced team will taylor a plan to fit your needs and will focus on healing and preventing pain and injuries. Want to know
+            more about our team?
+          </p>
+          <button>Meet the team</button>
+        </div>
+
+        <img src="../assets/team.jpg" alt="silhouette group of people at sunset" class="photo" />
       </div>
     </section>
     <!-- <section class="container">
@@ -49,14 +65,16 @@
         <a href="https://github.com/Claudia413/tjp-website/">here</a>
       </p> -->
     <!-- </section> -->
+
     <section class="contact cta">
       <img class="cta-img" src="../assets/FieldHike.jpg" />
       <div class="overlay">
         <div class="container">
           <h2 class="emphasize green">Contact us for an appointment today</h2>
-          <p>Call (03) 34 34 345</p>
+          <button>Contact us</button>
+          <!-- <p>Call (03) 34 34 345</p>
           <p>or</p>
-          <p>Fill out our contact form and we will call you</p>
+          <p>Fill out our contact form and we will call you</p> -->
         </div>
       </div>
     </section>
@@ -88,8 +106,9 @@ export default {
   margin: 0;
   width: 100%;
   height: auto;
-  max-height: 450px;
+  max-height: 550px;
   object-fit: cover;
+  object-position: center 70%;
 }
 
 h2 {
@@ -154,16 +173,35 @@ h2 {
     rgba(255, 255, 58, 0) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+
+.team {
+  // background-color: #1e2e4d;
+  // color: white;
+  h2 {
+    // color: white;
+  }
+  .text-img-split {
+    .photo {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
 .text-img-split {
   display: grid;
   column-gap: 40px;
   grid-template-columns: 60% 40%;
   grid-template-rows: auto auto;
-  grid-template-areas: "vision img";
-  .welcome {
+  grid-template-areas: "text img";
+  &.reverse {
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img text";
+  }
+  .content-text {
     padding: 80px 0;
-    grid-area: vision;
-    margin-bottom: 80px;
+    grid-area: text;
   }
   .photo {
     grid-area: img;
@@ -174,21 +212,25 @@ h2 {
   h2 {
     margin-top: 0;
   }
-  @media screen and(max-width:1200px) {
-    grid-template-columns: 60% 40%;
-  }
   @media screen and(max-width:991px) {
     column-gap: 0;
     grid-template-areas:
-      "vision vision"
+      "text text"
       "img img";
+    grid-template-rows: auto 200px;
+    &.reverse {
+      grid-template-rows: auto 200px;
+      grid-template-areas:
+        "text text"
+        "img img";
+    }
     .photo {
       grid-area: img;
       display: block;
       position: relative;
       left: -80px;
       width: calc(100% + 160px);
-      height: auto;
+      height: 100%;
       object-fit: cover;
     }
   }
