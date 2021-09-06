@@ -4,7 +4,7 @@
       <h2 class="emphasize green">{{ document.team_title[0].text }}</h2>
       <prismic-rich-text :field="document.team_intro"></prismic-rich-text>
       <div class="grid-team">
-        <Teamcard
+        <TeamCard
           v-for="(member, index) in document.slices"
           :key="member.name"
           class="team-member"
@@ -15,14 +15,15 @@
           :photo="member.portrait"
           :index="index"
         >
-        </Teamcard>
+        </TeamCard>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Teamcard from "../components/TeamCard.vue"
+import TeamCard from "../components/TeamCard.vue"
+
 export default {
   metaInfo: {
     title: "Team",
@@ -37,7 +38,7 @@ export default {
     }
   },
   components: {
-    Teamcard,
+    TeamCard,
   },
   methods: {
     async getContent() {
