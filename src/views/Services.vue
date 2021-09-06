@@ -152,7 +152,6 @@ export default {
       const response = await this.$prismic.client.getSingle("services")
       this.document = response.data
       this.document.slices = response.data.body
-      console.log("hello?", this.document.slices)
     },
     setTechniqueShown(techniqueId) {
       // Open accordion in same place as already selected after it has been closed
