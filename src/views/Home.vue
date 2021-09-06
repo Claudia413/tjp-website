@@ -15,13 +15,37 @@
             confidently in other areas. Feel free to call us and discuss how we can best help you.
           </p>
         </div>
-
-        <img src="../assets/placeholderphoto.png" alt="placeholder photo, nothing to see here unfortunately" class="photo" />
+        <img class="photo" src="../assets/back.jpg" alt="hands on patients back" />
       </div>
     </section>
-
-    <section class="team">
+    <section class="contact cta">
+      <img class="cta-img" src="../assets/FieldHike.jpg" />
+      <div class="overlay">
+        <div class="container">
+          <h2>Contact us for an appointment today</h2>
+          <p>Call us at (03) 34 34 345 or</p>
+          <button type="button" class="alternate">Mail us</button>
+          <!-- <p>Call (03) 34 34 345</p>
+          <p>or</p>
+          <p>Fill out our contact form and we will call you</p> -->
+        </div>
+      </div>
+    </section>
+    <section class="services">
       <div class="container text-img-split reverse">
+        <div class="content-text">
+          <h2 class="emphasize green">How we can help you</h2>
+          <p>
+            At Tower Junction Physio we use a variety of different techniques to assist you in your recovery. Find out more about these
+            techniques, what to expect, ACC and our prices here.
+          </p>
+          <button type="button" class="alternate">Read more</button>
+        </div>
+        <img class="photo" src="../assets/weights.jpg" alt="hands on patients back" />
+      </div>
+    </section>
+    <section class="team">
+      <div class="container text-img-split">
         <div class="content-text">
           <h2 class="emphasize green">Our Team</h2>
           <p>
@@ -31,51 +55,7 @@
           </p>
           <button>Meet the team</button>
         </div>
-
         <img src="../assets/team.jpg" alt="silhouette group of people at sunset" class="photo" />
-      </div>
-    </section>
-    <!-- <section class="container">
-      <h1>Hi there!</h1>
-      <p>Some features that might be a nice idea for this homepage:</p>
-      <ul>
-        <li>section that shares a little about the team or the practise with a link to the about page</li>
-        <li>a call-to-action section where we invite people to call the practise for an appointment</li>
-        <li>A picture of the practise/team/ to give the page a bit more visual appeal</li>
-        <li>Short introduction to different services offered, possibly with a link to the treatments page</li>
-        <li>Some frequently asked questions and answers</li>
-        <li>
-          A small bar with a warning for covid-19 updates that refers to the new page, could be turned off and on as situation changes
-        </li>
-      </ul> -->
-    <!-- <p>Other ideas that could be nice:</p>
-      <ul>
-        <li>An icon that shows in the tab of the browser instead of the default one</li>
-        <li>Link to Google maps for the location</li>
-        <li>Pictures of inside the practise</li>
-      </ul>
-      <p>This website has been build with VueJS and Gridsome to make it really fast and is currently hosted on Netlify</p>
-      <p>
-        All the content currently on here is put in the code. For easy management by you or someone in the team in the future I would set it
-        up with Prismic.io.
-        <a href="https://prismic.io/">More info on Prismic here</a>
-      </p>
-      <p>
-        If you're curious about the code, I have no secrets, it's properly structured and documented and it is available publicly on Github
-        <a href="https://github.com/Claudia413/tjp-website/">here</a>
-      </p> -->
-    <!-- </section> -->
-
-    <section class="contact cta">
-      <img class="cta-img" src="../assets/FieldHike.jpg" />
-      <div class="overlay">
-        <div class="container">
-          <h2 class="emphasize green">Contact us for an appointment today</h2>
-          <button>Contact us</button>
-          <!-- <p>Call (03) 34 34 345</p>
-          <p>or</p>
-          <p>Fill out our contact form and we will call you</p> -->
-        </div>
       </div>
     </section>
   </div>
@@ -142,7 +122,7 @@ h2 {
   }
 }
 .cta {
-  height: 380px;
+  height: 280px;
   width: 100%;
   position: relative;
   .container {
@@ -165,35 +145,31 @@ h2 {
   width: 100%;
   height: 100%;
   z-index: 50;
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 58, 0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 58, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: -moz-linear-gradient(left, rgba(153, 204, 0, 1) 40%, rgba(153, 204, 0, 0.1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(153, 204, 0, 1) 40%, rgba(153, 204, 0, 0.1) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 1) 40%,
-    rgba(255, 255, 58, 0) 100%
+    rgba(153, 204, 0, 1) 40%,
+    rgba(153, 204, 0, 0.1) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.services,
+.team,
+.introduction {
+  padding: 40px 0;
 }
 
 .team {
-  // background-color: #1e2e4d;
-  // color: white;
-  h2 {
-    // color: white;
-  }
-  .text-img-split {
-    .photo {
-      border-radius: 50%;
-      width: 300px;
-      height: 300px;
-    }
-  }
+  background-color: rgb(232, 233, 227);
 }
+
 .text-img-split {
   display: grid;
   column-gap: 40px;
   grid-template-columns: 60% 40%;
   grid-template-rows: auto auto;
   grid-template-areas: "text img";
+  align-items: center;
   &.reverse {
     grid-template-columns: 40% 60%;
     grid-template-rows: auto auto;
@@ -202,11 +178,14 @@ h2 {
   .content-text {
     padding: 80px 0;
     grid-area: text;
+    p {
+      max-width: 600px;
+    }
   }
   .photo {
     grid-area: img;
     width: 100%;
-    height: 100%;
+    height: 280px;
     object-fit: cover;
   }
   h2 {

@@ -82,9 +82,12 @@ export default {
       color: #4d4d4d;
       line-height: 13px;
     }
+    .team-member-bio {
+      max-width: 600px;
+    }
     p {
       font-size: 14px;
-      line-height: 22px;
+      line-height: 24px;
     }
   }
 

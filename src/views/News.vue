@@ -49,6 +49,7 @@ export default {
 <style lang="scss">
 .news-article {
   margin-bottom: 40px;
+  max-width: 800px;
   h4 {
     font-size: 18px;
     line-height: 26px;

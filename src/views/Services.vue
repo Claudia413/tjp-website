@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="section navigation">
+    <section class="navigation">
       <div class="container sub-navigation">
         <a v-for="(slice, index) in document.slices" class="section-link" :href="'#' + slice.primary.section_id" :key="index"
           ><h6>{{ slice.primary.section_title[0].text }}</h6></a
@@ -8,12 +8,18 @@
       </div>
     </section>
 
-    <section v-for="slice in document.slices" :key="slice.primary.section_id" class="section" :id="slice.primary.section_id">
-      <div v-if="slice.slice_type === 'section_of_text'" class="container">
+    <section
+      v-for="slice in document.slices"
+      :key="slice.primary.section_id"
+      class="section"
+      :class="slice.slice_type"
+      :id="slice.primary.section_id"
+    >
+      <div v-if="slice.slice_type === 'section_of_text'" class="container section-text">
         <h2 class="emphasize green">
           {{ slice.primary.section_title[0].text }}
         </h2>
-        <prismic-rich-text :field="slice.primary.section_text"></prismic-rich-text>
+        <prismic-rich-text class="prismic-text" :field="slice.primary.section_text"></prismic-rich-text>
       </div>
 
       <div v-if="slice.slice_type === 'section_with_cards'" class="container">
@@ -201,6 +207,12 @@ export default {
 .section {
   margin-bottom: 64px;
 }
+.section_of_text {
+  padding: 40px 0;
+  & ~ .section_of_text {
+    background-color: rgb(232, 233, 227);
+  }
+}
 .h2 {
   font-size: 26px;
   line-height: 48px;
@@ -247,6 +259,7 @@ export default {
   column-gap: 16px;
   max-width: 80%;
   margin: 0 auto;
+  padding-bottom: 30px;
   @media screen and(max-width: 911px) {
     column-gap: 8px;
     max-width: 80%;
@@ -273,7 +286,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 40px 40px;
+  border: 1px solid #99cc00;
   h6 {
     color: #99cc00;
     font-size: 20px;

@@ -48,7 +48,7 @@
         aria-label="Short description of your problem"
         @change="contactMessageError = false"
       />
-      <div class="button" type="submit" @click="checkForm()">Send</div>
+      <button type="button" @click="checkForm()">Send</button>
       <article v-for="msg in messages" :key="msg.text" class="message" :class="msg.type === 'success' ? 'is-success' : 'is-danger'">
         <div class="message-body">
           <p v-if="msg.type === 'error'">
@@ -135,6 +135,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.sign-up {
+  margin-bottom: 80px;
+}
 form {
   .form-fields {
     left: -9999px;

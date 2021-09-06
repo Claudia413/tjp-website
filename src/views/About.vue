@@ -80,6 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 h2 {
+  margin-top: 0;
   color: #333333;
   &.emphasize {
     &:after {
@@ -120,14 +121,9 @@ h2 {
   }
 }
 .history,
-.mission {
-  padding: 40px 0;
-}
-
-.history,
 .mission,
 .vision-values {
-  margin-bottom: 80px;
+  padding: 40px 0;
 }
 
 .text-img-split {
@@ -140,7 +136,7 @@ h2 {
     "values img";
   .vision {
     grid-area: vision;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
   .values {
     grid-area: values;
@@ -154,9 +150,7 @@ h2 {
   .landscape {
     display: none;
   }
-  h2 {
-    margin-top: 0;
-  }
+
   @media screen and(max-width:1200px) {
     grid-template-columns: 40% 60%;
   }
@@ -179,7 +173,7 @@ h2 {
       object-fit: cover;
     }
     .values {
-      margin-top: 80px;
+      margin-top: 40px;
     }
   }
   @media screen and(max-width: 768px) {
