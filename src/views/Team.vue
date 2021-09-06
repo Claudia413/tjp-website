@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import TeamCard from "../components/TeamCard.vue"
+import TeamCard from "../components/Team-Card.vue"
 
 export default {
   metaInfo: {
