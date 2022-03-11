@@ -73,7 +73,8 @@ li {
   line-height: 24px;
 }
 
-button {
+button,
+.button {
   background-color: #99cc00;
   border-radius: 0;
   padding: 8px 24px;
@@ -84,6 +85,7 @@ button {
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
+  text-decoration: none;
   &.alternate {
     background-color: #1e2e4d;
     color: white;

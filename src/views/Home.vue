@@ -24,7 +24,7 @@
         <div class="container">
           <h2>Contact us for an appointment today</h2>
           <p>Call us at (03) 34 34 345 or</p>
-          <button type="button" class="alternate">Mail us</button>
+          <router-link class="alternate button" to="/contact">Mail us</router-link>
           <!-- <p>Call (03) 34 34 345</p>
           <p>or</p>
           <p>Fill out our contact form and we will call you</p> -->
@@ -128,6 +128,11 @@ h2 {
   .container {
     padding-top: 40px;
   }
+  h2 {
+    @media screen and(max-width:991px) {
+      line-height: 32px;
+    }
+  }
 }
 .cta-img {
   position: absolute;
@@ -140,6 +145,12 @@ h2 {
   width: 100%;
   height: 100%;
   z-index: -1;
+  @media screen and(max-width:991px) {
+    object-position: 160px 85%;
+  }
+  @media screen and(max-width: 768px) {
+    object-position: 100px 85%;
+  }
 }
 .overlay {
   width: 100%;
@@ -170,6 +181,7 @@ h2 {
   grid-template-rows: auto auto;
   grid-template-areas: "text img";
   align-items: center;
+  padding: 40px 80px;
   &.reverse {
     grid-template-columns: 40% 60%;
     grid-template-rows: auto auto;
@@ -192,20 +204,22 @@ h2 {
     margin-top: 0;
   }
   @media screen and(max-width:991px) {
+    grid-template-columns: 100%;
     column-gap: 0;
-    grid-template-areas:
-      "text text"
-      "img img";
-    grid-template-rows: auto 200px;
+    grid-template-areas: "text";
+    grid-template-rows: auto;
+    padding: 40px;
     &.reverse {
-      grid-template-rows: auto 200px;
-      grid-template-areas:
-        "text text"
-        "img img";
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      grid-template-areas: "text";
+    }
+    .content-text {
+      padding: 0;
     }
     .photo {
       grid-area: img;
-      display: block;
+      display: none;
       position: relative;
       left: -80px;
       width: calc(100% + 160px);

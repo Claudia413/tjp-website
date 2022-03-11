@@ -120,8 +120,8 @@ export default {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 80px;
-  @media screen and(max-width: 768px) {
-    padding: 0 32px;
+  @media screen and(max-width: 991px) {
+    padding: 0 40px;
   }
 }
 
