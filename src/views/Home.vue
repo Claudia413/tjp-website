@@ -191,7 +191,7 @@ h2 {
   .photo {
     grid-area: img;
     width: 100%;
-    height: 538px;
+    height: 510px;
     object-fit: cover;
     aspect-ratio: unset;
   }
