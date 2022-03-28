@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div v-for="slice in document.body" :key="slice.id">
+    <div v-for="slice in document.slices" :key="slice.id">
       <section v-if="slice.slice_type === 'text_block'" class="mission">
         <div class="container">
           <h2 class="emphasize white">
@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      document: { body: null },
+      document: { body: null, slices: null },
     }
   },
   components: {
@@ -66,6 +66,7 @@ export default {
     async getContent() {
       const response = await this.$prismic.client.getSingle("about_page")
       this.document = response.data
+      this.document.slices = response.data.body
     },
   },
   created() {

@@ -1,63 +1,43 @@
 <template>
   <div class="home">
     <section class="homepage-header">
-      <img class="header-image" alt="Runner in a field with mountains in the back" src="../assets/headerhomepagetest.jpg" width="1600" />
+      <prismic-image :field="document.banner_photo" class="header-image" />
+      <!-- <img class="header-image" alt="Runner in a field with mountains in the back" src="../assets/headerhomepagetest.jpg" width="1600" /> -->
     </section>
-
-    <section class="introduction">
-      <div class="container text-img-split">
-        <div class="content-text">
-          <h2 class="emphasize green">Welcome to Tower Junction Physio</h2>
-          <p>Here comes a super nice blurb to welcome website visitors.</p>
-          <p>
-            At Tower Junction Physio our aim is to help you recover from a (sports) injury in a timely and effective way, so you can move
-            freely and painfree again. We specialize in shoulder, neck and feet, but with our many years of experience we can also assist
-            confidently in other areas. Feel free to call us and discuss how we can best help you.
-          </p>
+    <div v-for="slice in document.slices" :key="slice.id">
+      <section
+        v-if="slice.slice_type === 'text_and_image'"
+        class="introduction"
+        :class="slice.primary.background_highlight_color ? 'bg-grey' : null"
+      >
+        <div class="container text-img-split" :class="slice.primary.text_image_order === 'textLeft-imageRight' ? null : 'reverse'">
+          <div class="content-text">
+            <h2 class="emphasize green">{{ slice.primary.title1[0].text }}</h2>
+            <prismic-rich-text class="darker" :field="slice.primary.text_block1"></prismic-rich-text>
+            <button
+              v-if="slice.primary.optional_button !== 'No button'"
+              type="button"
+              :class="slice.primary.background_highlight_color ? null : 'alternate'"
+            >
+              {{ slice.primary.button_text[0].text }}
+            </button>
+          </div>
+          <prismic-image :field="slice.primary.image" class="photo" />
         </div>
-        <img class="photo" src="../assets/back.jpg" alt="hands on patients back" />
-      </div>
-    </section>
-    <section class="contact cta">
-      <img class="cta-img" src="../assets/FieldHike.jpg" />
-      <div class="overlay">
-        <div class="container">
-          <h2>Contact us for an appointment today</h2>
-          <p>Call us at (03) 34 34 345 or</p>
-          <router-link class="alternate button" to="/contact">Mail us</router-link>
-          <!-- <p>Call (03) 34 34 345</p>
-          <p>or</p>
-          <p>Fill out our contact form and we will call you</p> -->
+      </section>
+      <section v-if="slice.slice_type === 'cta_banner'" class="contact cta">
+        <prismic-image :field="slice.primary.background_image" class="cta-img" />
+        <div class="overlay">
+          <div class="container">
+            <h2>{{ slice.primary.cta_title[0].text }}</h2>
+            <p>
+              Call us at <span>{{ slice.primary.phonenumber[0].text }}</span> or
+            </p>
+            <router-link class="alternate button" to="/contact">Mail us</router-link>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="services">
-      <div class="container text-img-split reverse">
-        <div class="content-text">
-          <h2 class="emphasize green">How we can help you</h2>
-          <p>
-            At Tower Junction Physio we use a variety of different techniques to assist you in your recovery. Find out more about these
-            techniques, what to expect, ACC and our prices here.
-          </p>
-          <button type="button" class="alternate">Read more</button>
-        </div>
-        <img class="photo" src="../assets/weights.jpg" alt="hands on patients back" />
-      </div>
-    </section>
-    <section class="team">
-      <div class="container text-img-split">
-        <div class="content-text">
-          <h2 class="emphasize green">Our Team</h2>
-          <p>
-            Our team is passionate about helping you get back on your feet, or on your bike, whatever the injury is. Our knowledgeable and
-            experienced team will taylor a plan to fit your needs and will focus on healing and preventing pain and injuries. Want to know
-            more about our team?
-          </p>
-          <button>Meet the team</button>
-        </div>
-        <img src="../assets/team.jpg" alt="silhouette group of people at sunset" class="photo" />
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -66,7 +46,21 @@ export default {
   metaInfo: {
     title: "Homepage",
   },
+  data() {
+    return { document: { body: null, banner_photo: {}, slices: null } }
+  },
   components: {},
+  methods: {
+    async getContent() {
+      const response = await this.$prismic.client.getSingle("homepage")
+      this.document = response.data
+      this.document.slices = response.data.body
+      console.log("loaded", this.document)
+    },
+  },
+  created() {
+    this.getContent()
+  },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")
     next()
@@ -170,7 +164,7 @@ h2 {
   padding: 40px 0;
 }
 
-.team {
+.bg-grey {
   background-color: rgb(232, 233, 227);
 }
 
@@ -197,8 +191,9 @@ h2 {
   .photo {
     grid-area: img;
     width: 100%;
-    height: 280px;
+    height: 538px;
     object-fit: cover;
+    aspect-ratio: unset;
   }
   h2 {
     margin-top: 0;

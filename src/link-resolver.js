@@ -5,13 +5,9 @@ export default function (doc) {
     // If you have a singleton 'homepage' document, you return the root
     return "/"
   }
-  if (doc.type === "about_page") {
-    return "/about"
-  }
-  if (doc.type === "post") {
-    // For a 'post', you could use the post's Unique ID (UID)
-    return "/blog/" + doc.uid
-  }
+  // if (doc.type === "about_page") {
+  //   return "/about"
+  // }
   // For other document types, just use the UID
   if (doc.uid) {
     return "/" + doc.uid
