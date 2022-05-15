@@ -27,23 +27,14 @@
         <div class="footer">
           <section class="hours">
             <h6 class="strong">Opening hours</h6>
-            <p>Monday: 7am -8pm</p>
-            <p>Tuesdag: 7am -8pm</p>
-            <p>Wednesday: 7am -8pm</p>
-            <p>Thursday: 7am -8pm</p>
-            <p>Friday: 7am -8pm</p>
-            <p>Saturday: closed</p>
-            <p>Sunday: closed</p>
+
+            <p class="opening-day">Monday: <prismic-rich-text :field="document.monday" /></p>
+            <p class="opening-day">Tuesdag: <prismic-rich-text :field="document.tuesday" /></p>
+            <p class="opening-day">Wednesday: <prismic-rich-text :field="document.wednesday" /></p>
+            <p class="opening-day">Thursday: <prismic-rich-text :field="document.thursday" /></p>
+            <p class="opening-day">Friday: <prismic-rich-text :field="document.friday" /></p>
           </section>
-          <section class="footer-navigation">
-            <h6 class="strong">Sitemap</h6>
-            <router-link class="footer_nav_link" to="/">Home</router-link>
-            <router-link class="footer_nav_link" to="/about/">About</router-link>
-            <router-link class="footer_nav_link" to="/services">Treatments</router-link>
-            <router-link class="footer_nav_link" to="/contact">Contact</router-link>
-            <router-link class="footer_nav_link" to="/faq">FAQ</router-link>
-            <router-link class="footer_nav_link" to="/news">News</router-link>
-          </section>
+
           <section class="contact">
             <address class="footer-address">
               <h6 class="strong hide-mobile">Call us at:</h6>
@@ -72,6 +63,15 @@
             /></a>
           </section>
         </div>
+        <section class="footer-navigation">
+          <h6 class="strong">Sitemap</h6>
+          <router-link class="footer_nav_link" to="/">Home</router-link>
+          <router-link class="footer_nav_link" to="/about/">About</router-link>
+          <router-link class="footer_nav_link" to="/services">Treatments</router-link>
+          <router-link class="footer_nav_link" to="/contact">Contact</router-link>
+          <router-link class="footer_nav_link" to="/faq">FAQ</router-link>
+          <router-link class="footer_nav_link" to="/news">News</router-link>
+        </section>
         <div class="fine-print">
           <p>©Copyright 2020 Tower Junction Physio</p>
           <p>|</p>
@@ -91,11 +91,18 @@ import { mapState } from "vuex"
 
 export default {
   data() {
-    return {}
+    return { document: {} }
+  },
+  created() {
+    this.getContent()
   },
   methods: {
     toggleShowMobileMenu() {
       this.$store.dispatch("setMobileMenuState")
+    },
+    async getContent() {
+      const response = await this.$prismic.client.getSingle("opening_hours")
+      this.document = response.data
     },
   },
   computed: mapState(["showMobileMenu"]),
@@ -283,6 +290,14 @@ footer {
       line-height: 16px;
       margin: 0.5em 0;
     }
+    .opening-day {
+      div {
+        display: inline;
+        p {
+          display: inline;
+        }
+      }
+    }
   }
   .footer-address {
     grid-area: address;
@@ -303,46 +318,48 @@ footer {
       max-width: 100%;
     }
   }
-  .footer_nav_link {
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    line-height: 16px;
-    margin: 0.5em 0;
-    font-family: "Hind", arial;
-  }
   @media only screen and (max-width: 768px) {
     display: grid;
     grid-template-columns: 2fr 3fr;
     grid-template-rows: auto auto;
     grid-template-areas:
       "hours address"
-      "button map"
-      "sitemap sitemap";
+      "button map";
     h6 {
       font-size: 16px;
     }
     p {
       font-size: 14px;
     }
-    .footer-navigation {
-      grid-area: sitemap;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-content: space-between;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    .footer_nav_link {
-      display: inline-block;
-      font-size: 16px;
-    }
     .hide-mobile {
       display: none;
     }
   }
+}
+
+.footer-navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+  h6 {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+    line-height: 24px;
+  }
+}
+
+.footer_nav_link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  line-height: 12px;
+  margin: 0.5em 12px;
+  font-family: "Hind", arial;
 }
 
 .fine-print {

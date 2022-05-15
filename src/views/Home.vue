@@ -55,7 +55,6 @@ export default {
       const response = await this.$prismic.client.getSingle("homepage")
       this.document = response.data
       this.document.slices = response.data.body
-      console.log("loaded", this.document)
     },
   },
   created() {

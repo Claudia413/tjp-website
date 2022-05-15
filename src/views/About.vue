@@ -1,9 +1,13 @@
 <template>
   <div class="about">
     <div v-for="slice in document.slices" :key="slice.id">
-      <section v-if="slice.slice_type === 'text_block'" class="mission">
+      <section
+        v-if="slice.slice_type === 'text_block'"
+        class="mission"
+        :class="slice.primary.color_mode === 'Green background' ? 'green' : 'white'"
+      >
         <div class="container">
-          <h2 class="emphasize white">
+          <h2 class="emphasize" :class="slice.primary.color_mode === 'Green background' ? 'white' : 'green'">
             {{ slice.primary.title[0].text }}
           </h2>
           <prismic-rich-text class="darker" :field="slice.primary.text"></prismic-rich-text>
@@ -112,10 +116,15 @@ h2 {
   }
 }
 .mission {
-  background-color: #add145;
   color: #4d4d4d;
   h2 {
     color: #1e2e4d;
+  }
+  &.green {
+    background-color: #add145;
+  }
+  &.white {
+    background-color: white;
   }
   .darker {
     color: #2e2e2e;
