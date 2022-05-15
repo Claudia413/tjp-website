@@ -67,10 +67,10 @@
           <h6 class="strong">Sitemap</h6>
           <router-link class="footer_nav_link" to="/">Home</router-link>
           <router-link class="footer_nav_link" to="/about/">About</router-link>
-          <router-link class="footer_nav_link" to="/services">Treatments</router-link>
-          <router-link class="footer_nav_link" to="/contact">Contact</router-link>
-          <router-link class="footer_nav_link" to="/faq">FAQ</router-link>
+          <router-link class="footer_nav_link" to="/team">Team</router-link>
+          <router-link class="footer_nav_link" to="/services">Services</router-link>
           <router-link class="footer_nav_link" to="/news">News</router-link>
+          <router-link class="footer_nav_link" to="/contact">Contact</router-link>
         </section>
         <div class="fine-print">
           <p>©Copyright 2020 Tower Junction Physio</p>
