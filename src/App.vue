@@ -29,7 +29,7 @@
             <h6 class="strong">Opening hours</h6>
 
             <p class="opening-day">Monday: <prismic-rich-text :field="document.monday" /></p>
-            <p class="opening-day">Tuesdag: <prismic-rich-text :field="document.tuesday" /></p>
+            <p class="opening-day">Tuesday: <prismic-rich-text :field="document.tuesday" /></p>
             <p class="opening-day">Wednesday: <prismic-rich-text :field="document.wednesday" /></p>
             <p class="opening-day">Thursday: <prismic-rich-text :field="document.thursday" /></p>
             <p class="opening-day">Friday: <prismic-rich-text :field="document.friday" /></p>

@@ -33,7 +33,7 @@
             <p>
               Call us at <span>{{ slice.primary.phonenumber[0].text }}</span> or
             </p>
-            <router-link class="alternate button" to="/contact">Mail us</router-link>
+            <router-link class="alternate button" to="/contact">E-mail us</router-link>
           </div>
         </div>
       </section>
