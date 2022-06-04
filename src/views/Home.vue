@@ -222,6 +222,7 @@ h2 {
     }
   }
   @media screen and(max-width: 768px) {
+    padding: 0 20px;
     .photo {
       position: relative;
       left: -32px;

@@ -2,7 +2,7 @@
   <div id="app" class="layout">
     <header class="menubar">
       <div class="container header">
-        <img src="./assets/tjplogo.png" width="240" alt="Tower Junction Physio logo" />
+        <img src="./assets/tjplogo.png" alt="Tower Junction Physio logo" />
         <nav class="nav" :class="showMobileMenu ? 'show' : ''">
           <router-link class="nav__link" to="/">Home</router-link>
           <router-link class="nav__link" to="/about/">About</router-link>
@@ -37,8 +37,8 @@
 
           <section class="contact">
             <address class="footer-address">
-              <h6 class="strong hide-mobile">Call us at:</h6>
-              <p class="hide-mobile">
+              <h6 class="strong">Call us at:</h6>
+              <p class="">
                 <a href="tel:033434345" class="phonenumber">(03) 34 34 345</a>
               </p>
               <h6 class="strong">Find us at:</h6>
@@ -65,12 +65,14 @@
         </div>
         <section class="footer-navigation">
           <h6 class="strong">Sitemap</h6>
-          <router-link class="footer_nav_link" to="/">Home</router-link>
-          <router-link class="footer_nav_link" to="/about/">About</router-link>
-          <router-link class="footer_nav_link" to="/team">Team</router-link>
-          <router-link class="footer_nav_link" to="/services">Services</router-link>
-          <router-link class="footer_nav_link" to="/news">News</router-link>
-          <router-link class="footer_nav_link" to="/contact">Contact</router-link>
+          <div class="footer_nav_links">
+            <router-link class="footer_nav_link" to="/">Home</router-link>
+            <router-link class="footer_nav_link" to="/about/">About</router-link>
+            <router-link class="footer_nav_link" to="/team">Team</router-link>
+            <router-link class="footer_nav_link" to="/services">Services</router-link>
+            <router-link class="footer_nav_link" to="/news">News</router-link>
+            <router-link class="footer_nav_link" to="/contact">Contact</router-link>
+          </div>
         </section>
         <div class="fine-print">
           <p>©Copyright 2020 Tower Junction Physio</p>
@@ -130,6 +132,9 @@ export default {
   @media screen and(max-width: 991px) {
     padding: 0 40px;
   }
+  @media screen and(max-width: 768px) {
+    padding: 0 20px;
+  }
 }
 
 .menubar {
@@ -149,6 +154,14 @@ export default {
   padding-top: 8px;
   padding-bottom: 8px;
   height: 80px;
+  img {
+    width: 240px;
+    height: auto;
+    @media only screen and (max-width: 768px) {
+      width: 60%;
+      max-width: 240px;
+    }
+  }
 }
 
 .nav {
@@ -286,6 +299,7 @@ footer {
   }
   .hours {
     grid-area: hours;
+    margin-right: 8px;
     p {
       line-height: 16px;
       margin: 0.5em 0;
@@ -298,6 +312,9 @@ footer {
         }
       }
     }
+  }
+  .contact {
+    max-width: 33%;
   }
   .footer-address {
     grid-area: address;
@@ -320,11 +337,12 @@ footer {
   }
   @media only screen and (max-width: 768px) {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 5fr 5fr;
+    column-gap: 8px;
     grid-template-rows: auto auto;
     grid-template-areas:
       "hours address"
-      "button map";
+      "map map";
     h6 {
       font-size: 16px;
     }
@@ -333,6 +351,17 @@ footer {
     }
     .hide-mobile {
       display: none;
+    }
+    .contact {
+      max-width: 100%;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    h6 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 12px;
     }
   }
 }
@@ -351,7 +380,13 @@ footer {
     line-height: 24px;
   }
 }
-
+.footer_nav_links {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 .footer_nav_link {
   display: inline-block;
   text-decoration: none;
