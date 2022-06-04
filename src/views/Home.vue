@@ -1,10 +1,9 @@
 <template>
   <div class="home">
     <section class="homepage-header">
-      <prismic-image :field="document.banner_photo" class="header-image" />
-      <!-- <img class="header-image" alt="Runner in a field with mountains in the back" src="../assets/headerhomepagetest.jpg" width="1600" /> -->
+      <prismic-image :field="homePageData.banner_photo" class="header-image" />
     </section>
-    <div v-for="slice in document.slices" :key="slice.id">
+    <div v-for="slice in homePageData.body" :key="slice.id">
       <section
         v-if="slice.slice_type === 'text_and_image'"
         class="introduction"
@@ -42,23 +41,24 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
+
 export default {
   metaInfo: {
     title: "Homepage",
-  },
-  data() {
-    return { document: { body: null, banner_photo: {}, slices: null } }
   },
   components: {},
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("homepage")
-      this.document = response.data
-      this.document.slices = response.data.body
+      this.$store.dispatch("setHomePageData", response.data)
     },
   },
+  computed: mapState(["homePageData"]),
   created() {
-    this.getContent()
+    if (Object.keys(this.$store.state.homePageData).length === 0) {
+      this.getContent()
+    }
   },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")

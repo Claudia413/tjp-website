@@ -23,16 +23,6 @@ export default {
     }
   },
   components: { ContactForm },
-  methods: {
-    // async getContent() {
-    //   const response = await this.$prismic.client.getSingle("news_page");
-    //   this.document.page_title = response.data.title[0].text;
-    //   this.document.slices = response.data.body;
-    // },
-  },
-  created() {
-    // this.getContent();
-  },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")
     next()

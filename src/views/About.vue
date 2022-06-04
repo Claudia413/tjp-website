@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div v-for="slice in document.slices" :key="slice.id">
+    <div v-for="slice in aboutPageData.body" :key="slice.id">
       <section
         v-if="slice.slice_type === 'text_block'"
         class="mission"
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import TimelineEvent from "../components/TimelineEvent.vue"
 
 export default {
@@ -58,23 +59,27 @@ export default {
   metaInfo: {
     title: "About us",
   },
-  data() {
-    return {
-      document: { body: null, slices: null },
-    }
-  },
+  // data() {
+  //   return {
+  //     document: { body: null, slices: null },
+  //   }
+  // },
   components: {
     TimelineEvent,
   },
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("about_page")
-      this.document = response.data
-      this.document.slices = response.data.body
+      this.$store.dispatch("setAboutPageData", response.data)
+      // this.document = response.data
+      // this.document.slices = response.data.body
     },
   },
+  computed: mapState(["aboutPageData"]),
   created() {
-    this.getContent()
+    if (Object.keys(this.$store.state.aboutPageData).length === 0) {
+      this.getContent()
+    }
   },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")

@@ -1,11 +1,11 @@
 <template>
   <section class="team">
     <div class="container">
-      <h2 class="emphasize green">{{ document.team_title[0].text }}</h2>
-      <prismic-rich-text :field="document.team_intro"></prismic-rich-text>
+      <h2 class="emphasize green">{{ teamPageData.body[0].primary.team_section[0].text }}</h2>
+      <prismic-rich-text :field="teamPageData.body[0].primary.team_section_intro"></prismic-rich-text>
       <div class="grid-team">
         <TeamCard
-          v-for="(member, index) in document.slices"
+          v-for="(member, index) in teamPageData.body[0].items"
           :key="member.name"
           class="team-member"
           :name="member.first_and_lastname"
@@ -22,20 +22,12 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import TeamCard from "../components/Team-Card.vue"
 
 export default {
   metaInfo: {
     title: "Team",
-  },
-  data() {
-    return {
-      document: {
-        team_title: [{ text: "" }],
-        team_intro: [{ text: "" }],
-        slices: null,
-      },
-    }
   },
   components: {
     TeamCard,
@@ -43,13 +35,14 @@ export default {
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("team_page")
-      this.document.team_title = response.data.body[0].primary.team_section
-      this.document.team_intro = response.data.body[0].primary.team_section_intro
-      this.document.slices = response.data.body[0].items
+      this.$store.dispatch("setTeamPageData", response.data)
     },
   },
+  computed: mapState(["teamPageData"]),
   created() {
-    this.getContent()
+    if (Object.keys(this.$store.state.teamPageData).length === 0) {
+      this.getContent()
+    }
   },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")

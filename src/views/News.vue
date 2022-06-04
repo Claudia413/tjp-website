@@ -1,8 +1,8 @@
 <template>
   <section class="news">
     <div class="container">
-      <h2 class="emphasize green">{{ document.page_title }}</h2>
-      <div v-for="slice in document.slices" :key="slice.id">
+      <h2 class="emphasize green">{{ newsPageData.title[0].text }}</h2>
+      <div v-for="slice in newsPageData.body" :key="slice.id">
         <template v-if="slice.slice_type === 'article'" class="mission">
           <article :key="slice.id + 'article'" class="news-article">
             <h4>{{ slice.primary.article_title[0].text }}</h4>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
+
 export default {
   metaInfo: {
     title: "News",
@@ -32,12 +34,14 @@ export default {
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("news_page")
-      this.document.page_title = response.data.title[0].text
-      this.document.slices = response.data.body
+      this.$store.dispatch("setNewsPageData", response.data)
     },
   },
+  computed: mapState(["newsPageData"]),
   created() {
-    this.getContent()
+    if (Object.keys(this.$store.state.newsPageData).length === 0) {
+      this.getContent()
+    }
   },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")

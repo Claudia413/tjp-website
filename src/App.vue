@@ -91,7 +91,7 @@ import { mapState } from "vuex"
 
 export default {
   data() {
-    return { document: {} }
+    return { document: { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [] } }
   },
   created() {
     this.getContent()

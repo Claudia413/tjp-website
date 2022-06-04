@@ -2,14 +2,14 @@
   <div>
     <section class="navigation">
       <div class="container sub-navigation">
-        <a v-for="(slice, index) in document.slices" class="section-link" :href="'#' + slice.primary.section_id" :key="index"
+        <a v-for="(slice, index) in servicesPageData.body" class="section-link" :href="'#' + slice.primary.section_id" :key="index"
           ><h6>{{ slice.primary.section_title[0].text }}</h6></a
         >
       </div>
     </section>
 
     <section
-      v-for="slice in document.slices"
+      v-for="slice in servicesPageData.body"
       :key="slice.primary.section_id"
       class="section"
       :class="slice.slice_type"
@@ -128,6 +128,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import IconCard from "../components/IconCard.vue"
 
 export default {
@@ -138,10 +139,6 @@ export default {
     return {
       techniqueIndex: 0,
       closedAccordion: false,
-      document: {
-        body: null,
-        slices: null,
-      },
     }
   },
   components: {
@@ -150,8 +147,7 @@ export default {
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("services")
-      this.document = response.data
-      this.document.slices = response.data.body
+      this.$store.dispatch("setServicesPageData", response.data)
     },
     setTechniqueShown(techniqueId) {
       // Open accordion in same place as already selected after it has been closed
@@ -170,8 +166,11 @@ export default {
       this.closedAccordion = bool
     },
   },
+  computed: mapState(["servicesPageData"]),
   created() {
-    this.getContent()
+    if (Object.keys(this.$store.state.servicesPageData).length === 0) {
+      this.getContent()
+    }
   },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("setMobileMenuStateFalse")
