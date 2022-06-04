@@ -11,13 +11,13 @@
     "@mdi/js": "^5.9.55",
     "@prismicio/client": "^4.0.0",
     "@prismicio/vue": "^2.1.2",
-    "@sendgrid/mail": "^7.6.2",
+    "@sendgrid/mail": "^7.7.0",
     "axios": "^0.21.4",
-    "core-js": "^3.22.5",
+    "core-js": "^3.22.8",
     "mdi-vue": "^3.0.13",
     "prismic-dom": "^2.2.7",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.3",
+    "vue-router": "^3.5.4",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.6.2",
-    "sass": "^1.51.0",
+    "sass": "^1.52.2",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.14"
   },
