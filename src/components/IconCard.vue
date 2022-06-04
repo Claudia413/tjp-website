@@ -1,9 +1,9 @@
 <template>
-		<div class="category-card">
-				<mdicon :name="getIcon(icon)" size="43" class="treatment-icon" />
-				<prismic-rich-text :field="title" class="h4"></prismic-rich-text>
-				<prismic-rich-text :field="list" class="ul"></prismic-rich-text>
-		</div>
+  <div class="category-card">
+    <mdicon :name="getIcon(icon)" size="43" class="treatment-icon" />
+    <prismic-rich-text :field="title" class="h4"></prismic-rich-text>
+    <prismic-rich-text :field="list" class="ul"></prismic-rich-text>
+  </div>
 </template>
 
 <script>
@@ -16,24 +16,24 @@ export default {
   },
   props: {
     title: Array,
-		list: Array,
-		icon: String
+    list: Array,
+    icon: String,
   },
   methods: {
-		getIcon(icon) {
-			switch (icon) {
-				case "Doctor":
-					return 'doctor'
-				case "Happy":
-					return 'emoticonHappyOutline'
-				case "Weightlift":
-					return 'weightLifter';
-				case "Clipboard":
-					return 'clipboardAccountOutline'
-				default:
-					return 'doctor'
-			}
-		}
+    getIcon(icon) {
+      switch (icon) {
+        case "Doctor":
+          return "doctor"
+        case "Happy":
+          return "emoticonHappyOutline"
+        case "Weightlift":
+          return "weightLifter"
+        case "Clipboard":
+          return "clipboardAccountOutline"
+        default:
+          return "doctor"
+      }
+    },
   },
 }
 </script>
