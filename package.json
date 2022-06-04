@@ -11,7 +11,7 @@
     "@mdi/js": "^5.9.55",
     "@prismicio/client": "^4.0.0",
     "@prismicio/vue": "^2.1.2",
-    "@sendgrid/mail": "^7.6.2",
+    "@sendgrid/mail": "^7.7.0",
     "axios": "^0.21.4",
     "core-js": "^3.22.5",
     "mdi-vue": "^3.0.13",
