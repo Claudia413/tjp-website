@@ -91,5 +91,6 @@ export default {
 }
 .close-icon {
   color: #333333;
+  cursor: pointer;
 }
 </style>

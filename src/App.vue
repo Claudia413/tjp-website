@@ -2,7 +2,7 @@
   <div id="app" class="layout">
     <header class="menubar">
       <div class="container header">
-        <img src="./assets/tjplogo.png" alt="Tower Junction Physio logo" />
+        <router-link to="/"><img src="./assets/tjplogo.png" alt="Tower Junction Physio logo" /></router-link>
         <nav class="nav" :class="showMobileMenu ? 'show' : ''">
           <router-link class="nav__link" to="/">Home</router-link>
           <router-link class="nav__link" to="/about/">About</router-link>

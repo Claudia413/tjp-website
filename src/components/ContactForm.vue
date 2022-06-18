@@ -156,6 +156,9 @@ form {
       border-style: dashed;
       border-color: rgb(216, 40, 40);
     }
+    @media screen and(max-width: 768px) {
+      width: 80%;
+    }
   }
   label {
     display: flex;
