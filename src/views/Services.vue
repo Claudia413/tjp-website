@@ -95,11 +95,19 @@
         <div>
           <div class="price-table">
             <div class="treatment-title">
-              <prismic-rich-text v-for="treatment in slice.items" :key="treatment.description" :field="treatment.description">
+              <prismic-rich-text
+                v-for="(treatment, index) in slice.items"
+                :key="treatment.description[0].text + index"
+                :field="treatment.description"
+              >
               </prismic-rich-text>
             </div>
             <div class="price">
-              <prismic-rich-text v-for="treatment in slice.items" :key="treatment.price" :field="treatment.price"></prismic-rich-text>
+              <prismic-rich-text
+                v-for="(treatment, index) in slice.items"
+                :key="treatment.price[0].text + index"
+                :field="treatment.price"
+              ></prismic-rich-text>
             </div>
           </div>
           <prismic-rich-text class="subtitle" :field="slice.primary.subtitle_for_prices"></prismic-rich-text>
@@ -132,7 +140,6 @@ export default {
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("services")
-      console.log(response.data)
       this.$store.dispatch("setServicesPageData", response.data)
     },
     setTechniqueShown(techniqueId) {
