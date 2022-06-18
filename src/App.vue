@@ -18,6 +18,7 @@
           <span></span>
         </div>
       </div>
+      <Notify :title="notification.message"></Notify>
     </header>
     <main>
       <router-view />
@@ -89,12 +90,14 @@
 
 <script>
 import "./assets/styles.scss"
+import Notify from "./components/Notify.vue"
 import { mapState } from "vuex"
 
 export default {
   data() {
-    return { document: { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [] } }
+    return { document: { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [] }, notification: {} }
   },
+  components: { Notify },
   created() {
     this.getContent()
   },
@@ -104,7 +107,10 @@ export default {
     },
     async getContent() {
       const response = await this.$prismic.client.getSingle("opening_hours")
+      const notifyResponse = await this.$prismic.client.getSingle("notification")
+      console.log(notifyResponse)
       this.document = response.data
+      this.notification = notifyResponse.data
     },
   },
   computed: mapState(["showMobileMenu"]),
@@ -146,8 +152,10 @@ export default {
   }
 }
 
-.header {
+header {
   grid-area: header;
+}
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
