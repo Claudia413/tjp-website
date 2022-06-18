@@ -2,9 +2,9 @@
   <div>
     <section class="navigation">
       <div class="container sub-navigation">
-        <a v-for="(slice, index) in servicesPageData.body" class="section-link" :href="'#' + slice.primary.section_id" :key="index"
-          ><h6>{{ slice.primary.section_title[0].text }}</h6></a
-        >
+        <a v-for="(slice, index) in servicesPageData.body" class="section-link" :href="'#' + slice.primary.section_id" :key="index">
+          <h6>{{ slice.primary.section_title[0].text }}</h6>
+        </a>
       </div>
     </section>
 
@@ -89,38 +89,23 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="section pricing" id="pricing">
-      <div class="container">
-        <h2 class="emphasize green">Our prices</h2>
+      <div v-if="slice.slice_type === 'pricing_section_with_text'" class="container pricing">
+        <h2 class="emphasize green">{{ slice.primary.section_title[0].text }}</h2>
         <div>
           <div class="price-table">
             <div class="treatment-title">
-              <p>Private Initial Consultation</p>
-              <p>Private Follow Up Consultation</p>
-              <p>ACC Co-payment per visit</p>
+              <prismic-rich-text v-for="treatment in slice.items" :key="treatment.description" :field="treatment.description">
+              </prismic-rich-text>
             </div>
             <div class="price">
-              <p>$75.00</p>
-              <p>$65.00</p>
-              <p>$30.00</p>
+              <prismic-rich-text v-for="treatment in slice.items" :key="treatment.price" :field="treatment.price"></prismic-rich-text>
             </div>
           </div>
-          <p class="subtitle">There may be an additional cost for any materials used during your treatment.</p>
+          <prismic-rich-text class="subtitle" :field="slice.primary.subtitle_for_prices"></prismic-rich-text>
         </div>
         <div class="pricing-info">
-          <h5>Please note:</h5>
-          <ul>
-            <li>
-              If you are receiving physiotherapy treatment under ACC, or any other insurance company, and they decline the cover of your
-              injury you will be liable for the full cost of your treatment.
-            </li>
-            <li>
-              In the event of non-payment of your account, then this will also include all recovery costs, legal fees and commissions that
-              may occur in obtaining payment of the account.
-            </li>
-          </ul>
+          <prismic-rich-text :field="slice.primary.extra_pricing_details"></prismic-rich-text>
         </div>
       </div>
     </section>
@@ -147,6 +132,7 @@ export default {
   methods: {
     async getContent() {
       const response = await this.$prismic.client.getSingle("services")
+      console.log(response.data)
       this.$store.dispatch("setServicesPageData", response.data)
     },
     setTechniqueShown(techniqueId) {
