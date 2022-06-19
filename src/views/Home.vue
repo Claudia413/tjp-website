@@ -46,7 +46,7 @@ import { mapState } from "vuex"
 
 export default {
   metaInfo: {
-    title: "Homepage",
+    title: "HomePage",
   },
   components: {},
   methods: {

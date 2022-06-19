@@ -55,15 +55,10 @@ import { mapState } from "vuex"
 import TimelineEvent from "../components/TimelineEvent.vue"
 
 export default {
-  name: "About",
+  name: "AboutPage",
   metaInfo: {
     title: "About us",
   },
-  // data() {
-  //   return {
-  //     document: { body: null, slices: null },
-  //   }
-  // },
   components: {
     TimelineEvent,
   },

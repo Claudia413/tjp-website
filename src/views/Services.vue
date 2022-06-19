@@ -126,7 +126,7 @@ import IconCard from "../components/IconCard.vue"
 
 export default {
   metaInfo: {
-    title: "Services",
+    title: "ServicesPage",
   },
   data() {
     return {

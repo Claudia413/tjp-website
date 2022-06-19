@@ -12,7 +12,7 @@
 import ContactForm from "../components/ContactForm"
 export default {
   metaInfo: {
-    title: "Contact",
+    title: "ContactPage",
   },
   data() {
     return {

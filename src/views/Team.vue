@@ -27,7 +27,7 @@ import TeamCard from "../components/Team-Card.vue"
 
 export default {
   metaInfo: {
-    title: "Team",
+    title: "TeamPage",
   },
   components: {
     TeamCard,
