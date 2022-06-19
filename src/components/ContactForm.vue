@@ -54,7 +54,7 @@
           <p v-if="msg.type === 'error'">
             Oops. We're very sorry but something went wrong sending your message. Please give us a call instead.
           </p>
-          <p v-if="msg.type === 'success'">Message succesfully send! We'll be in touch soon.</p>
+          <p v-if="msg.type === 'success'">Message successfully sent! We'll be in touch soon.</p>
         </div>
       </article>
     </form>
