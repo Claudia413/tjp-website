@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     toggleShowNotify() {
-      this.$store.dispatch("setNotifyState")
+      this.$store.dispatch("setNotifyState", false)
     },
   },
   computed: mapState(["showNotify"]),

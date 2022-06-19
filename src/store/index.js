@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     showMobileMenu: false,
-    showNotify: true,
+    showNotify: false,
     homePageData: {},
     aboutPageData: {},
     servicesPageData: {},
@@ -44,8 +44,8 @@ export default new Vuex.Store({
         commit("SET_SHOW_MOBILE_MENU", false)
       }
     },
-    setNotifyState({ commit }) {
-      commit("SET_SHOW_NOTIFY", false)
+    setNotifyState({ commit }, results) {
+      commit("SET_SHOW_NOTIFY", results)
     },
     setMobileMenuStateFalse({ commit }) {
       commit("SET_SHOW_MOBILE_MENU", false)

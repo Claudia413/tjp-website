@@ -108,9 +108,9 @@ export default {
     async getContent() {
       const response = await this.$prismic.client.getSingle("opening_hours")
       const notifyResponse = await this.$prismic.client.getSingle("notification")
-      console.log(notifyResponse)
       this.document = response.data
       this.notification = notifyResponse.data
+      this.$store.dispatch("setNotifyState", notifyResponse.data.show_notification)
     },
   },
   computed: mapState(["showMobileMenu"]),
