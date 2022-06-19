@@ -66,8 +66,6 @@ export default {
     async getContent() {
       const response = await this.$prismic.client.getSingle("about_page")
       this.$store.dispatch("setAboutPageData", response.data)
-      // this.document = response.data
-      // this.document.slices = response.data.body
     },
   },
   computed: mapState(["aboutPageData"]),
