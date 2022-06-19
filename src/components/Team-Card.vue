@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  name: "TeamCard",
   metaInfo: {
     title: "Team card",
   },

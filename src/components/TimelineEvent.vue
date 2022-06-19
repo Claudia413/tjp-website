@@ -11,8 +11,9 @@
 
 <script>
 export default {
+  name: "TimelineEvent",
   metaInfo: {
-    title: "About us",
+    title: "Timeline event",
   },
   data() {
     return {}

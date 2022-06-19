@@ -15,6 +15,7 @@
 import { mapState } from "vuex"
 
 export default {
+  name: "NotifyBar",
   metaInfo: {
     title: "Notify bar",
   },

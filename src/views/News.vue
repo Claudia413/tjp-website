@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="emphasize green">{{ newsPageData.title[0].text }}</h2>
       <div v-for="slice in newsPageData.body" :key="slice.id">
-        <template v-if="slice.slice_type === 'article'" class="mission">
+        <template v-if="slice.slice_type === 'article'">
           <article :key="slice.id + 'article'" class="news-article">
             <h4>{{ slice.primary.article_title[0].text }}</h4>
             <p class="subtitle">{{ slice.primary.publishing_date[0].text }}</p>

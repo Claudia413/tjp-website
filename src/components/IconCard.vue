@@ -8,6 +8,7 @@
 
 <script>
 export default {
+	name: "IconCard",
   metaInfo: {
     title: "Icon card",
   },
