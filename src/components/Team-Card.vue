@@ -99,6 +99,12 @@ export default {
         text-align: center;
         max-width: 90%;
       }
+      .team-profile-photo {
+        width: 200px;
+        height: auto;
+        margin-inline-end: 0;
+        margin-inline-start: 0;
+      }
     }
     .team-profile-photo {
       width: 200px;

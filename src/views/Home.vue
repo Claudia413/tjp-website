@@ -13,13 +13,14 @@
           <div class="content-text">
             <h2 class="emphasize green">{{ slice.primary.title1[0].text }}</h2>
             <prismic-rich-text class="darker" :field="slice.primary.text_block1"></prismic-rich-text>
-            <button
+            <router-link
               v-if="slice.primary.optional_button !== 'No button'"
-              type="button"
-              :class="slice.primary.background_highlight_color ? null : 'alternate'"
+              :to="slice.primary.optional_button === 'To Service Page' ? '/services' : '/team'"
             >
-              {{ slice.primary.button_text[0].text }}
-            </button>
+              <button type="button" :class="slice.primary.background_highlight_color ? null : 'alternate'">
+                {{ slice.primary.button_text[0].text }}
+              </button>
+            </router-link>
           </div>
           <prismic-image :field="slice.primary.image" class="photo" />
         </div>

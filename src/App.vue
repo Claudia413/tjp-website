@@ -76,7 +76,7 @@
           </div>
         </section>
         <div class="fine-print">
-          <p>©Copyright 2020 Tower Junction Physio</p>
+          <p>©Copyright 2022 Tower Junction Physio</p>
           <p>|</p>
           <p>
             Made with love by

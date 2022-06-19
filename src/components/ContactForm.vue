@@ -49,7 +49,7 @@
         @change="contactMessageError = false"
       />
       <button type="button" @click="checkForm()">Send</button>
-      <article v-for="msg in messages" :key="msg.text" class="message" :class="msg.type === 'success' ? 'is-success' : 'is-danger'">
+      <article v-for="msg in messages" :key="msg.text.value" class="message" :class="msg.type === 'success' ? 'is-success' : 'is-danger'">
         <div class="message-body">
           <p v-if="msg.type === 'error'">
             Oops. We're very sorry but something went wrong sending your message. Please give us a call instead.

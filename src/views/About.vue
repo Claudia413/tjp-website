@@ -183,7 +183,7 @@ h2 {
       display: block;
       position: relative;
       left: -80px;
-      width: calc(100% + 160px);
+      width: calc(100% + 100px);
       height: auto;
       object-fit: cover;
     }
