@@ -19,6 +19,7 @@
 import { mapState } from "vuex"
 
 export default {
+  name: "NewsPage",
   metaInfo: {
     title: "NewsPage",
   },

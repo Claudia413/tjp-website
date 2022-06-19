@@ -125,6 +125,7 @@ import { mapState } from "vuex"
 import IconCard from "../components/IconCard.vue"
 
 export default {
+  name: "ServicesPage",
   metaInfo: {
     title: "ServicesPage",
   },

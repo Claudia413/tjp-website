@@ -11,6 +11,7 @@
 <script>
 import ContactForm from "../components/ContactForm"
 export default {
+  name: "ContactPage",
   metaInfo: {
     title: "ContactPage",
   },

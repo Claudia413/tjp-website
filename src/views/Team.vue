@@ -26,6 +26,7 @@ import { mapState } from "vuex"
 import TeamCard from "../components/Team-Card.vue"
 
 export default {
+  name: "TeamPage",
   metaInfo: {
     title: "TeamPage",
   },
