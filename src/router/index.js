@@ -13,22 +13,22 @@ const routes = [
   {
     path: "/team",
     name: "Team",
-    component: () => import(/* webpackChunkName: "about" */ "../views/Team.vue"),
+    component: () => import(/* webpackChunkName: "team" */ "../views/Team.vue"),
   },
   {
     path: "/services",
     name: "Services",
-    component: () => import(/* webpackChunkName: "about" */ "../views/Services.vue"),
+    component: () => import(/* webpackChunkName: "services" */ "../views/Services.vue"),
   },
   {
     path: "/news",
     name: "News",
-    component: () => import(/* webpackChunkName: "about" */ "../views/News.vue"),
+    component: () => import(/* webpackChunkName: "news" */ "../views/News.vue"),
   },
   {
     path: "/contact",
     name: "Contact",
-    component: () => import(/* webpackChunkName: "about" */ "../views/Contact.vue"),
+    component: () => import(/* webpackChunkName: "contact" */ "../views/Contact.vue"),
   },
   {
     path: "/about",
