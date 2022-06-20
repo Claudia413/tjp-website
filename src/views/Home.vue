@@ -70,9 +70,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-links a {
-  margin-right: 1rem;
-}
 .homepage-header {
   display: flex;
   margin: 0;
@@ -159,8 +156,7 @@ h2 {
     rgba(153, 204, 0, 0.1) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
-.services,
-.team,
+
 .introduction {
   padding: 40px 0;
 }
