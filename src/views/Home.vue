@@ -81,6 +81,7 @@ export default {
   max-height: 550px;
   object-fit: cover;
   object-position: center 70%;
+  text-align: center;
 }
 
 h2 {
