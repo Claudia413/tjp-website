@@ -1,2 +1,15 @@
+/index.php?page=our-mission	/about	301
+/index.php?page=treatment	/services	301
+/index.php?page=services-2	/services	301
+/index.php?page=about-us	/services	301
+/index.php?page=what-is-physiotherapy	/services	301
+/index.php?page=acc-and-physiotherapy	/services	301
+/index.php?page=treatment-charges	/services	301
+/index.php?page=contact	/contact	301
+/index.php?page=send-an-enquiry	/contact	301
+/cms/index.php?mact=News	/news	301
+/index.php?page=level-2	/news	301
+/index.php?page=level-3	/news	301
+/index.php?page=our-team-2	/team	301
 /index.php*		/		301
 /*    /index.html   200
