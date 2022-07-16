@@ -1,5 +1,11 @@
 <template>
   <section class="news">
+    <vue-headful
+      title="Tower Junction Physio"
+      description="The latest news from Tower Junction Physio in Christchurch."
+      image="../assets/tjplogo.png"
+      url="https://www.towerjunctionphysio.co.nz/news"
+    />
     <div class="container">
       <h2 class="emphasize green">{{ newsPageData.title[0].text }}</h2>
       <div v-for="slice in newsPageData.body" :key="slice.id">

@@ -6,6 +6,7 @@ import PrismicVue from "@prismicio/vue"
 import linkResolver from "./link-resolver"
 import mdiVue from "mdi-vue/v2"
 import * as mdijs from "@mdi/js"
+import vueHeadful from "vue-headful"
 
 Vue.config.productionTip = false
 
@@ -21,6 +22,8 @@ Vue.use(PrismicVue, {
 Vue.use(mdiVue, {
   icons: mdijs,
 })
+
+Vue.component("vue-headful", vueHeadful)
 
 new Vue({
   router,

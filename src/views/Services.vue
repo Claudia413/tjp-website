@@ -1,5 +1,11 @@
 <template>
   <div>
+    <vue-headful
+      title="Tower Junction Physio"
+      description="Physiotherapy is a medical profession which aims to speed up your recovery from injury, prevent injuries from occurring in the future and keep you healthy and fit."
+      image="../assets/tjplogo.png"
+      url="https://www.towerjunctionphysio.co.nz/services"
+    />
     <section class="navigation">
       <div class="container sub-navigation">
         <a v-for="(slice, index) in servicesPageData.body" class="section-link" :href="'#' + slice.primary.section_id" :key="index">

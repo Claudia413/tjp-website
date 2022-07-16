@@ -1,5 +1,11 @@
 <template>
   <section class="team">
+    <vue-headful
+      title="Tower Junction Physio"
+      description="Our staff are highly skilled, experienced professionals who use the latest techniques and developments in physiotherapy."
+      image="../assets/tjplogo.png"
+      url="https://www.towerjunctionphysio.co.nz/team"
+    />
     <div class="container">
       <h2 class="emphasize green">{{ teamPageData.body[0].primary.team_section[0].text }}</h2>
       <prismic-rich-text :field="teamPageData.body[0].primary.team_section_intro"></prismic-rich-text>

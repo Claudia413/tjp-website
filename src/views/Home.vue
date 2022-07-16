@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <vue-headful
+      title="Tower Junction Physio"
+      description="At Tower Junction Physio our aim is to help you recover from an injury, in a timely and efficient way so you can move freely and without pain."
+      image="../assets/tjplogo.png"
+      url="https://www.towerjunctionphysio.co.nz/"
+    />
     <section class="homepage-header">
       <prismic-image :field="homePageData.banner_photo" class="header-image" />
     </section>

@@ -1,8 +1,14 @@
 <template>
-  <section class="news">
+  <section class="contact">
+    <vue-headful
+      title="Tower Junction Physio"
+      description="Send us a quick message and we will call you to make an appointment."
+      image="../assets/tjplogo.png"
+      url="https://www.towerjunctionphysio.co.nz/contact"
+    />
     <div class="container">
       <h2 class="emphasize green">Contact</h2>
-      <p>Send us a quick message and we will call you to make an appointment</p>
+      <p>Send us a quick message and we will call you to make an appointment.</p>
       <Contact-form />
     </div>
   </section>

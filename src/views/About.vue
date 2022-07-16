@@ -1,5 +1,11 @@
 <template>
   <div class="about">
+    <vue-headful
+      title="Tower Junction Physio"
+      description="Tower Junction Physio arose after our long-standing Central City Physiotherapy clinic had to relocate from the earthquake damaged CBD in 2011."
+      image="../assets/tjplogo.png"
+      url="https://www.towerjunctionphysio.co.nz/about"
+    />
     <div v-for="slice in aboutPageData.body" :key="slice.id">
       <section
         v-if="slice.slice_type === 'text_block'"
