@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section-container">
     <vue-headful
       title="Tower Junction Physio"
       description="Physiotherapy is a medical profession which aims to speed up your recovery from injury, prevent injuries from occurring in the future and keep you healthy and fit."
@@ -112,6 +112,16 @@
           <prismic-rich-text :field="slice.primary.extra_pricing_details"></prismic-rich-text>
         </div>
       </div>
+
+      <div v-if="slice.slice_type === 'text_and_image'" class="text-image section_of_text">
+        <div class="container text-img-split" :class="slice.primary.text_image_order === 'textLeft-imageRight' ? null : 'reverse'">
+          <div class="content-text">
+            <h2 class="emphasize green">{{ slice.primary.section_title[0].text }}</h2>
+            <prismic-rich-text class="darker" :field="slice.primary.text_block1"></prismic-rich-text>
+          </div>
+          <prismic-image :field="slice.primary.image" class="photo" />
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -194,6 +204,17 @@ export default {
 }
 .section {
   margin-bottom: 64px;
+}
+
+.section:last-child {
+  &.section_of_text,
+  &.text_and_image {
+    margin-bottom: 0;
+  }
+}
+
+.text_and_image .section_of_text {
+  background-color: rgb(232, 233, 227);
 }
 .section_of_text {
   padding: 40px 0;
@@ -378,6 +399,75 @@ export default {
         content: "-";
         margin-right: 8px;
       }
+    }
+  }
+}
+
+.bg-grey {
+  background-color: rgb(232, 233, 227);
+  padding: 40px 0;
+}
+
+.text-img-split {
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto auto;
+  grid-template-areas: "text img";
+  align-items: center;
+  padding: 40px 80px;
+  &.reverse {
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img text";
+  }
+  .content-text {
+    padding: 80px 0;
+    grid-area: text;
+    p {
+      max-width: 600px;
+    }
+  }
+  .photo {
+    grid-area: img;
+    width: 100%;
+    height: 510px;
+    object-fit: cover;
+    aspect-ratio: unset;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  @media screen and(max-width:991px) {
+    grid-template-columns: 100%;
+    column-gap: 0;
+    grid-template-areas: "text";
+    grid-template-rows: auto;
+    padding: 40px;
+    &.reverse {
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      grid-template-areas: "text";
+    }
+    .content-text {
+      padding: 0;
+    }
+    .photo {
+      grid-area: img;
+      display: none;
+      position: relative;
+      left: -80px;
+      width: calc(100% + 160px);
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  @media screen and(max-width: 768px) {
+    padding: 0 20px;
+    .photo {
+      position: relative;
+      left: -32px;
+      width: calc(100% + 64px);
     }
   }
 }
