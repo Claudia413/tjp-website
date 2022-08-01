@@ -441,23 +441,25 @@ export default {
   @media screen and(max-width:991px) {
     grid-template-columns: 100%;
     column-gap: 0;
-    grid-template-areas: "text";
+    grid-template-areas:
+      "text"
+      "img";
     grid-template-rows: auto;
     padding: 40px;
     &.reverse {
       grid-template-columns: 100%;
       grid-template-rows: auto;
-      grid-template-areas: "text";
+      grid-template-areas:
+        "text"
+        "img";
     }
     .content-text {
       padding: 0;
     }
     .photo {
       grid-area: img;
-      display: none;
       position: relative;
-      left: -80px;
-      width: calc(100% + 160px);
+      width: 100%;
       height: 100%;
       object-fit: cover;
     }
@@ -466,8 +468,8 @@ export default {
     padding: 0 20px;
     .photo {
       position: relative;
-      left: -32px;
-      width: calc(100% + 64px);
+      width: 100%;
+      height: auto;
     }
   }
 }
