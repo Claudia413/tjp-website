@@ -100,11 +100,10 @@
         <h2 class="emphasize green">{{ slice.primary.section_title[0].text }}</h2>
         <div>
           <div class="price-table">
-            <template v-for="(treatment, index) in slice.items">
-              <prismic-rich-text :key="treatment.description[0].text + index" :field="treatment.description" class="treatment-title">
-              </prismic-rich-text>
-              <prismic-rich-text :key="treatment.price[0].text + index" :field="treatment.price" class="price"></prismic-rich-text>
-            </template>
+            <div v-for="(treatment, index) in slice.items" :key="treatment.description[0].text + index" class="price-treatment">
+              <prismic-rich-text :field="treatment.description" class="treatment-title"></prismic-rich-text>
+              <prismic-rich-text :field="treatment.price" class="price"></prismic-rich-text>
+            </div>
           </div>
           <prismic-rich-text class="subtitle" :field="slice.primary.subtitle_for_prices"></prismic-rich-text>
         </div>
@@ -380,6 +379,9 @@ export default {
   grid-template-rows: 54px;
   max-width: 500px;
   column-gap: 8px;
+  .price-treatment {
+    display: contents;
+  }
   .price {
     font-weight: 600;
   }
