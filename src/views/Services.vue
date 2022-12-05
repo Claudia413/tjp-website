@@ -100,7 +100,7 @@
         <h2 class="emphasize green">{{ slice.primary.section_title[0].text }}</h2>
         <div>
           <div class="price-table">
-            <template v-for="(treatment, index) in slice.items">
+            <template v-for="(treatment, index) in slice.items" :key="treatment.description[0].text + index">
               <prismic-rich-text :key="treatment.description[0].text + index" :field="treatment.description" class="treatment-title">
               </prismic-rich-text>
               <prismic-rich-text :key="treatment.price[0].text + index" :field="treatment.price" class="price"></prismic-rich-text>
