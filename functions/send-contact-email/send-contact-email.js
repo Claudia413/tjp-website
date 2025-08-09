@@ -1,7 +1,6 @@
 require("dotenv").config()
-const { SENDGRID_API_KEY, FROM_EMAIL_ADDRESS, CONTACT_TO_EMAIL_ADDRESS } = process.env
-const sgMail = require("@sendgrid/mail")
-sgMail.setApiKey(SENDGRID_API_KEY)
+const { POSTMARK_API_KEY, FROM_EMAIL_ADDRESS, CONTACT_TO_EMAIL_ADDRESS, NODE_ENV } = process.env
+const postmark = require("postmark")
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -14,26 +13,29 @@ exports.handler = async (event) => {
     return { statusCode: 422, body: "Name, email, and message are required." }
   }
 
-  const msg = {
-    to: CONTACT_TO_EMAIL_ADDRESS, // Change to your recipient
-    from: FROM_EMAIL_ADDRESS, // Change to your verified sender
-    subject: "New message from website contact form",
-    text: `${data.message}`,
-    html: `<strong>
-    <h6>Hello, a new form was submitted through your website Tower Junction Physio.<h6>
-    <p>The following information was sent</p>
-    <p>Name: ${data.contactName}</p>
-    <p>Phone-number: ${data.contactPhone}</p>
-    <p>Message:${data.message}</p>
-    </strong>`,
-  }
+  var client = new postmark.ServerClient(POSTMARK_API_KEY)
+
+  client.sendEmail({
+    From: "claudia@stablevariance.com" ?? FROM_EMAIL_ADDRESS,
+    To: "claudia@stablevariance.com" ?? CONTACT_TO_EMAIL_ADDRESS,
+    Subject: "New message from website contact form",
+    TextBody: `Hello, a new form was submitted through your website Tower Junction Physio.
+
+The following information was sent:
+
+Name: ${data.contactName}
+Phone-number: ${data.contactPhone}
+Message:
+${data.message}`,
+  })
+
   try {
-    await sgMail.send(msg)
+    await postmark.sendEmail(msg)
   } catch (error) {
     console.error(JSON.stringify(error, null, 2))
     return {
       statusCode: 422,
-      body: `error: ${error}`,
+      body: `Unexpected error occurred while sending email`,
     }
   }
   return { statusCode: 200, body: "Your message was successfully sent!" }
