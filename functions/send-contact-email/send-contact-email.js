@@ -32,7 +32,7 @@ ${data.message}`,
   try {
     await postmark.sendEmail(msg)
   } catch (error) {
-    console.error(JSON.stringify(error, null, 2))
+    console.error(error)
     return {
       statusCode: 422,
       body: `Unexpected error occurred while sending email`,
