@@ -15,11 +15,12 @@ exports.handler = async (event) => {
 
   var client = new postmark.ServerClient(POSTMARK_API_KEY)
 
-  client.sendEmail({
-    From: "claudia@stablevariance.com" ?? FROM_EMAIL_ADDRESS,
-    To: "claudia@stablevariance.com" ?? CONTACT_TO_EMAIL_ADDRESS,
-    Subject: "New message from website contact form",
-    TextBody: `Hello, a new form was submitted through your website Tower Junction Physio.
+  try {
+    const response = await client.sendEmail({
+      From: "claudia@stablevariance.com" ?? FROM_EMAIL_ADDRESS,
+      To: "claudia@stablevariance.com" ?? CONTACT_TO_EMAIL_ADDRESS,
+      Subject: "New message from website contact form",
+      TextBody: `Hello, a new form was submitted through your website Tower Junction Physio.
 
 The following information was sent:
 
@@ -27,10 +28,8 @@ Name: ${data.contactName}
 Phone-number: ${data.contactPhone}
 Message:
 ${data.message}`,
-  })
-
-  try {
-    await postmark.sendEmail(msg)
+    })
+    console.info(response)
   } catch (error) {
     console.error(error)
     return {
