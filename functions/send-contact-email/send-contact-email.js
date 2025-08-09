@@ -1,5 +1,5 @@
 require("dotenv").config()
-const { POSTMARK_API_KEY, FROM_EMAIL_ADDRESS, CONTACT_TO_EMAIL_ADDRESS, NODE_ENV } = process.env
+const { POSTMARK_API_KEY, FROM_EMAIL_ADDRESS_POSTMARK, CONTACT_TO_EMAIL_ADDRESS } = process.env
 const postmark = require("postmark")
 
 exports.handler = async (event) => {
@@ -17,8 +17,8 @@ exports.handler = async (event) => {
 
   try {
     const response = await client.sendEmail({
-      From: "claudia@stablevariance.com" ?? FROM_EMAIL_ADDRESS,
-      To: "claudia@stablevariance.com" ?? CONTACT_TO_EMAIL_ADDRESS,
+      From: FROM_EMAIL_ADDRESS_POSTMARK,
+      To: CONTACT_TO_EMAIL_ADDRESS,
       Subject: "New message from website contact form",
       TextBody: `Hello, a new form was submitted through your website Tower Junction Physio.
 
