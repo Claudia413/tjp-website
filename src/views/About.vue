@@ -165,10 +165,10 @@ h2 {
     display: none;
   }
 
-  @media screen and(max-width:1200px) {
+  @media screen and (max-width: 1200px) {
     grid-template-columns: 40% 60%;
   }
-  @media screen and(max-width:991px) {
+  @media screen and (max-width: 991px) {
     column-gap: 0;
     grid-template-areas:
       "vision vision"
@@ -190,7 +190,7 @@ h2 {
       margin-top: 40px;
     }
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     .portrait {
       position: relative;
       left: -32px;

@@ -135,10 +135,10 @@ export default {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 80px;
-  @media screen and(max-width: 991px) {
+  @media screen and (max-width: 991px) {
     padding: 0 40px;
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 0 20px;
   }
 }
@@ -146,7 +146,7 @@ export default {
 .menubar {
   background-color: #1e2e4d;
   z-index: 800;
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     position: sticky;
     top: 0;
   }
@@ -407,7 +407,7 @@ footer {
 
 .fine-print {
   display: flex;
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     justify-content: center;
   }
   p,

@@ -55,13 +55,13 @@ export default {
     align-items: center;
     max-width: 90%;
     overflow: hidden;
-    @media screen and(max-width: 768px) {
+    @media screen and (max-width: 768px) {
       max-width: 80vw;
     }
   }
   .important {
     margin-right: 4px;
-    @media screen and(max-width: 768px) {
+    @media screen and (max-width: 768px) {
       font-size: 10px;
     }
   }
@@ -78,11 +78,11 @@ export default {
     color: #333333;
     font-size: 14px;
   }
-  @media screen and(max-width: 991px) {
+  @media screen and (max-width: 991px) {
     padding: 4px 40px;
     max-width: 98vw;
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 4px 20px;
     .link,
     .text p {

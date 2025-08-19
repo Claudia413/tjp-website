@@ -92,7 +92,7 @@ export default {
     }
   }
 
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     &.reverse {
       flex-direction: column;
