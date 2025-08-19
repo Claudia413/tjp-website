@@ -127,7 +127,7 @@ h2 {
     padding-top: 40px;
   }
   h2 {
-    @media screen and(max-width:991px) {
+    @media screen and (max-width: 991px) {
       line-height: 32px;
     }
   }
@@ -143,10 +143,10 @@ h2 {
   width: 100%;
   height: 100%;
   z-index: -1;
-  @media screen and(max-width:991px) {
+  @media screen and (max-width: 991px) {
     object-position: 160px 85%;
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     object-position: 100px 85%;
   }
 }
@@ -201,7 +201,7 @@ h2 {
   h2 {
     margin-top: 0;
   }
-  @media screen and(max-width:991px) {
+  @media screen and (max-width: 991px) {
     grid-template-columns: 100%;
     column-gap: 0;
     grid-template-areas: "text";
@@ -225,7 +225,7 @@ h2 {
       object-fit: cover;
     }
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 0 20px;
     .photo {
       position: relative;

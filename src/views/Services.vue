@@ -268,11 +268,11 @@ export default {
   max-width: 80%;
   margin: 0 auto;
   padding-bottom: 30px;
-  @media screen and(max-width: 911px) {
+  @media screen and (max-width: 911px) {
     column-gap: 8px;
     max-width: 80%;
   }
-  @media screen and(max-width: 890px) {
+  @media screen and (max-width: 890px) {
     display: none;
   }
 }
@@ -302,7 +302,7 @@ export default {
     line-height: 32px;
     margin: 0;
   }
-  @media screen and(max-width: 890px) {
+  @media screen and (max-width: 890px) {
     display: none;
   }
 }
@@ -351,7 +351,7 @@ export default {
       padding: 8px;
     }
   }
-  @media screen and(max-width: 890px) {
+  @media screen and (max-width: 890px) {
     display: block;
   }
 }
@@ -440,7 +440,7 @@ export default {
   h2 {
     margin-top: 0;
   }
-  @media screen and(max-width:991px) {
+  @media screen and (max-width: 991px) {
     grid-template-columns: 100%;
     column-gap: 0;
     grid-template-areas:
@@ -466,7 +466,7 @@ export default {
       object-fit: cover;
     }
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 0 20px;
     .photo {
       position: relative;

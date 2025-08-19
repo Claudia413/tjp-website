@@ -70,7 +70,7 @@ export default {
     color: #1e2e4d;
     margin-top: 24px;
   }
-  @media screen and(max-width:1024px) {
+  @media screen and (max-width: 1024px) {
     width: 45%;
   }
 }

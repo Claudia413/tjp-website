@@ -69,7 +69,7 @@ export default {
       }
     }
   }
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     &.reverse .event-box,
     .event-box {
       left: calc(10% - 20px);
